@@ -60,8 +60,7 @@ import { InfiniteLoading } from '@nutui/nutui-react'
 | hasMore | Has more data | `boolean` | `true` |
 | threshold | The loadMore event will be Emitted when the distance between the scrollbar and the bottom is less than threshold | `number` | `200` |
 | capture | Whether to use capture mode | `boolean` | `false` |
-| target | Used to identify and distinguish between multiple component instances on the page. Note that this attribute is not used for listening to DOM elements, but rather for managing multiple component instances on the same page. |
-| `string` | `-` |
+| target | Identifies and distinguishes multiple component instances on a page. Not for listening to DOM elements. | `string` | `-` |
 | loadMoreText | “No more” text | `string` | `Oops, here's the bottom` |
 | pullRefresh | Enable pull refresh | `boolean` | `false` |
 | pullingText | Pull refresh text | `ReactNode` | `Let go and refresh` |
