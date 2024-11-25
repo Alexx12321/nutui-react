@@ -15,20 +15,15 @@
         "show": true
       },
       {
-        "name": "official-theme-react",
-        "cName": "官方主题",
-        "eName": "Official Theme"
-      },
-      {
         "name": "theme-react",
         "cName": "主题定制",
         "eName": "Customize Theme",
         "show": true
       },
       {
-        "name": "migrate-from-v1",
-        "cName": "从 v1 升级到 v2",
-        "eName": "Migrate-from-v1",
+        "name": "migrate-from-v2",
+        "cName": "从 v2 升级到 v3",
+        "eName": "Migrate-from-v2",
         "show": true
       },
       {
@@ -64,7 +59,7 @@
       "enName": "base",
       "packages": [
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Button",
           "type": "component",
           "cName": "按钮",
@@ -75,7 +70,7 @@
           "author": ""
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Cell",
           "type": "component",
           "cName": "单元格",
@@ -86,7 +81,7 @@
           "author": "songsong"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "CellGroup",
           "type": "component",
           "cName": "单元格",
@@ -98,7 +93,7 @@
           "author": "songsong"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "ConfigProvider",
           "type": "component",
           "cName": "全局配置",
@@ -110,7 +105,7 @@
           "author": "hanyuxinting"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Icon",
           "type": "component",
           "cName": "图标",
@@ -122,7 +117,7 @@
           "author": "oasis-cloud"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Image",
           "type": "component",
           "tarodoc": true,
@@ -134,7 +129,7 @@
           "author": "vickyYE"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Overlay",
           "type": "component",
           "cName": "遮罩层",
@@ -151,7 +146,7 @@
       "enName": "layout",
       "packages": [
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Col",
           "type": "component",
           "cName": "列",
@@ -162,7 +157,7 @@
           "author": "yushuang24"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Divider",
           "type": "component",
           "cName": "分割线",
@@ -173,7 +168,7 @@
           "author": "vickyYE"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Grid",
           "type": "component",
           "cName": "宫格",
@@ -184,7 +179,7 @@
           "author": "yangxiaolu"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "GridItem",
           "type": "component",
           "cName": "宫格子组件",
@@ -196,7 +191,7 @@
           "author": "yangxiaolu"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Layout",
           "type": "component",
           "cName": "布局",
@@ -207,7 +202,7 @@
           "author": "yushuang24"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Row",
           "type": "component",
           "cName": "行",
@@ -218,7 +213,7 @@
           "author": "yushuang24"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Space",
           "type": "component",
           "cName": "间距",
@@ -240,7 +235,7 @@
           "author": "hx"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "SafeArea",
           "type": "component",
           "cName": "安全区",
@@ -257,7 +252,7 @@
       "enName": "nav",
       "packages": [
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "BackTop",
           "type": "component",
           "cName": "返回顶部",
@@ -291,7 +286,30 @@
           "author": "Ymm0008"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
+          "name": "HoverButton",
+          "type": "component",
+          "cName": "悬浮按钮",
+          "desc": "悬浮多按钮，用于快捷功能",
+          "sort": 5,
+          "show": true,
+          "taro": true,
+          "author": "Ymm0008"
+        },
+        {
+          "version": "3.0.0",
+          "name": "HoverButtonItem",
+          "type": "component",
+          "cName": "悬浮按钮子组件",
+          "exportEmpty": true,
+          "desc": "悬浮按钮",
+          "sort": 5,
+          "show": false,
+          "taro": true,
+          "author": "Ymm0008"
+        },
+        {
+          "version": "3.0.0",
           "name": "NavBar",
           "type": "component",
           "cName": "头部导航",
@@ -335,7 +353,7 @@
           "author": "hx"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Tabbar",
           "type": "component",
           "cName": "标签栏",
@@ -346,7 +364,7 @@
           "author": "dsj"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "TabbarItem",
           "sort": 2,
           "cName": "标签栏子组件",
@@ -419,7 +437,7 @@
           "author": "szg2008"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "CalendarCard",
           "type": "component",
           "cName": "日历卡片",
@@ -441,7 +459,7 @@
           "author": "ailululu"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Checkbox",
           "type": "component",
           "cName": "复选按钮",
@@ -452,7 +470,7 @@
           "author": "oasis"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "CheckboxGroup",
           "type": "component",
           "cName": "多选按钮组",
@@ -497,7 +515,7 @@
           "author": "hanyuxinting"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Input",
           "type": "component",
           "cName": "输入框",
@@ -508,7 +526,7 @@
           "author": "VickyYe"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "InputNumber",
           "type": "component",
           "cName": "数字输入框",
@@ -522,7 +540,7 @@
     },
     {
       "name": "数据录入",
-      "enName": "dentry1",
+      "enName": "dataentry",
       "packages": [
         {
           "version": "2.0.0",
@@ -570,7 +588,7 @@
           "author": "dsj"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Radio",
           "type": "component",
           "cName": "单选按钮",
@@ -581,7 +599,7 @@
           "author": "oasis"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "RadioGroup",
           "type": "component",
           "cName": "单选按钮组",
@@ -592,7 +610,7 @@
           "author": "oasis"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Range",
           "type": "component",
           "cName": "区间选择器",
@@ -603,7 +621,7 @@
           "author": "vickyYe"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Rate",
           "type": "component",
           "cName": "评分",
@@ -614,7 +632,7 @@
           "author": "dsj"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "SearchBar",
           "type": "component",
           "cName": "搜索栏",
@@ -647,7 +665,7 @@
           "author": "songsong"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Switch",
           "type": "component",
           "cName": "开关",
@@ -658,7 +676,7 @@
           "author": "dsj"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "TextArea",
           "type": "component",
           "cName": "文本域",
@@ -698,7 +716,7 @@
           "author": "dsj"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Badge",
           "type": "component",
           "cName": "徽标",
@@ -709,7 +727,7 @@
           "author": "lzz"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Dialog",
           "type": "component",
           "cName": "对话框",
@@ -731,7 +749,7 @@
           "author": "songsong"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Empty",
           "type": "component",
           "cName": "空状态",
@@ -742,7 +760,18 @@
           "author": "liukun"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
+          "name": "ResultPage",
+          "type": "component",
+          "cName": "结果反馈",
+          "desc": "以页面的形式向用户反馈操作结果",
+          "sort": 15,
+          "show": true,
+          "taro": true,
+          "author": "songsong"
+        },
+        {
+          "version": "3.0.0",
           "name": "InfiniteLoading",
           "type": "component",
           "tarodoc": true,
@@ -754,7 +783,7 @@
           "author": "swag~jun"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Loading",
           "type": "component",
           "cName": "加载中",
@@ -776,7 +805,7 @@
           "author": "vickyYe"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Notify",
           "type": "component",
           "tarodoc": true,
@@ -799,18 +828,19 @@
           "author": "lzz"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Popup",
           "sort": 9,
           "cName": "弹出层",
           "type": "component",
           "show": true,
           "taro": true,
+          "rn": true,
           "desc": "弹出层容器，用于展示弹窗、信息提示等内容，支持多个弹出层叠加展示",
           "author": "szg2008"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "PullToRefresh",
           "type": "component",
           "cName": "下拉刷新",
@@ -821,7 +851,7 @@
           "author": "oasis"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Skeleton",
           "type": "component",
           "cName": "骨架屏",
@@ -832,7 +862,7 @@
           "author": "swag~jun"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Swipe",
           "type": "component",
           "cName": "滑动手势",
@@ -843,7 +873,7 @@
           "author": "Ymm0008"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Toast",
           "type": "component",
           "tarodoc": true,
@@ -872,7 +902,7 @@
           "author": "swag~jun"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "AnimatingNumbers",
           "type": "component",
           "cName": "数字动画",
@@ -894,7 +924,7 @@
           "author": "libin"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Avatar",
           "type": "component",
           "cName": "头像",
@@ -905,7 +935,7 @@
           "author": "junjun"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "AvatarGroup",
           "type": "component",
           "cName": "头像组合子组件",
@@ -949,7 +979,7 @@
           "author": "zhenyulei"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "CountDown",
           "type": "component",
           "cName": "倒计时",
@@ -957,7 +987,8 @@
           "sort": 17,
           "show": true,
           "taro": true,
-          "author": "songsong"
+          "author": "songsong",
+          "v14": true
         },
         {
           "version": "2.0.0",
@@ -971,7 +1002,7 @@
           "author": "vickyYE"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "ImagePreview",
           "type": "component",
           "cName": "图片预览",
@@ -982,7 +1013,7 @@
           "author": "yangjinjun3"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Indicator",
           "type": "component",
           "cName": "指示器",
@@ -993,7 +1024,7 @@
           "author": "liukun"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Pagination",
           "type": "component",
           "cName": "分页",
@@ -1001,10 +1032,11 @@
           "sort": 6,
           "show": true,
           "taro": true,
+          "v14": true,
           "author": "lkjh3214"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Price",
           "type": "component",
           "cName": "价格",
@@ -1015,7 +1047,7 @@
           "author": "songsong"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Progress",
           "type": "component",
           "cName": "进度条",
@@ -1048,7 +1080,7 @@
           "author": "swag~jun"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Swiper",
           "type": "component",
           "cName": "轮播",
@@ -1059,7 +1091,7 @@
           "author": "liukun"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "SwiperItem",
           "type": "component",
           "cName": "轮播子组件",
@@ -1081,7 +1113,7 @@
           "author": "yangjinjun3"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Tag",
           "type": "component",
           "cName": "标签",
@@ -1103,7 +1135,7 @@
           "author": "swag~jun"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Video",
           "type": "component",
           "cName": "视频播放器",
@@ -1177,7 +1209,7 @@
           "author": "zhaoqian16"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "TrendArrow",
           "type": "component",
           "cName": "趋势箭头",
