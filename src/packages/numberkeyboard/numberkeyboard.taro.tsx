@@ -7,6 +7,7 @@ import { PopupProps } from '@/packages/popup/popup.taro'
 import { useConfig } from '@/packages/configprovider/configprovider.taro'
 import { ComponentDefaults } from '@/utils/typings'
 import pxTransform from '@/utils/px-transform'
+import { mergeProps } from '@/utils/merge-props'
 
 export interface NumberKeyboardProps extends PopupProps {
   visible: boolean
@@ -50,7 +51,7 @@ export const NumberKeyboard: FunctionComponent<
     onClose,
     onConfirm,
     ...rest
-  } = { ...defaultProps, ...props }
+  } = mergeProps(defaultProps, props)
   const classPrefix = 'nut-numberkeyboard'
 
   const getBasicKeys = () => {
