@@ -69,4 +69,3 @@ import { InfiniteLoading } from '@nutui/nutui-react-taro'
 | 名称 | 说明 | 默认值 |
 | --- | --- | --- |
 | \--nutui-infiniteloading-color | 滑动到底部的文字颜色 | `$color-text-help` |
-| \--nutui-infiniteloading-icon-size | 滑动到底部的文字颜色 | `24px` |
