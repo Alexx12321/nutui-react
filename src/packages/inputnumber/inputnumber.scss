@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-
+  background-color: $color-background;
+  border-radius: $inputnumber-input-border-radius;
+  overflow: hidden;
   &-minus,
   &-add {
     display: flex;
@@ -11,17 +13,15 @@
     width: $inputnumber-button-width;
     height: $inputnumber-button-height;
     background-color: $inputnumber-button-background-color;
-    border-radius: $inputnumber-button-border-radius;
+    .nut-icon {
+      --nut-icon-width: 20px;
+      --nut-icon-height: 20px;
+    }
+    background-color: yellow;
   }
 
   &-icon {
     color: $inputnumber-icon-color;
-    /*  #ifdef rn harmony  */
-    font-size: 14px;
-    /*  #endif  */
-    /*  #ifndef  rn harmony  */
-    font-size: $inputnumber-icon-size;
-    /*  #endif */
     cursor: pointer;
 
     &-disabled {
@@ -39,7 +39,6 @@
     text-align: center;
     outline: none;
     border: $inputnumber-input-border;
-    border-radius: $inputnumber-input-border-radius;
     margin: $inputnumber-input-margin;
     color: $inputnumber-input-font-color;
     background-color: $inputnumber-input-background-color;
