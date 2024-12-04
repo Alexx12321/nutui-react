@@ -612,6 +612,14 @@ $textarea-disabled-color: var(
 ) !default;
 
 // inputnumber（✅）
+$inputnumber-input-max-width: var(
+  --nutui-inputnumber-input-max-width,
+  23px
+) !default;
+$inputnumber-input-min-width: var(
+  --nutui-inputnumber-input-max-width,
+  12px
+) !default;
 $inputnumber-input-height: var(--nutui-inputnumber-input-height, 20px) !default;
 $inputnumber-input-background-color: var(
   --nutui-inputnumber-input-background-color,
