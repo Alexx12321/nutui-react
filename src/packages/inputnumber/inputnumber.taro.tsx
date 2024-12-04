@@ -14,9 +14,10 @@ import {
   Text,
 } from '@tarojs/components'
 import { Minus, Plus } from '@nutui/icons-react-taro'
+import { createSelectorQuery } from '@tarojs/taro'
 import { usePropsValue } from '@/utils/use-props-value'
 import { BasicComponent, ComponentDefaults } from '@/utils/typings'
-import { harmony, harmonyAndRn, rn } from '@/utils/platform-taro'
+import { harmonyAndRn, rn } from '@/utils/platform-taro'
 
 export interface InputNumberProps extends BasicComponent {
   value: number | string
@@ -92,10 +93,10 @@ export const InputNumber: FunctionComponent<
   }
   const isRnAndHarmony = harmonyAndRn()
   const isRn = rn()
-  const isHarmony = harmony()
   const classes = classNames(classPrefix, className)
   const [focused, setFocused] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
+  const refRandomId = useRef(Math.random().toString(36).slice(-8))
   useEffect(() => {
     if (select && focused) {
       inputRef.current?.select?.()
@@ -142,7 +143,22 @@ export const InputNumber: FunctionComponent<
       setInputValue(format(shadowValue))
     }
   }, [focused, shadowValue])
-
+  useEffect(() => {
+    createSelectorQuery()
+      .select(`#root${refRandomId.current} .nut-inputnumber-input`)
+      .fields(
+        {
+          computedStyle: ['fontSize'],
+        },
+        (res) => {
+          if (!res) return
+          if (inputRef.current) {
+            inputRef.current.style.width = `${inputValue.length * parseInt(res.fontSize)}px`
+          }
+        }
+      )
+      .exec()
+  }, [inputValue])
   useEffect(() => {
     if (async) {
       setShadowValue(bound(Number(value), Number(min), Number(max)))
@@ -251,7 +267,7 @@ export const InputNumber: FunctionComponent<
   }
 
   return (
-    <View className={classes} style={style}>
+    <View className={classes} style={style} id={`root${refRandomId.current}`}>
       <View className={`${classPrefix}-minus`} onClick={handleReduce}>
         {isRnAndHarmony ? (
           <Text
