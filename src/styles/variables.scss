@@ -631,7 +631,7 @@ $inputnumber-input-font-color: var(
 ) !default;
 $inputnumber-input-font-size: var(
   --nutui-inputnumber-input-font-size,
-  12px
+  $font-size-s
 ) !default;
 $inputnumber-input-border: var(--nutui-inputnumber-input-border, 0) !default;
 $inputnumber-input-border-radius: var(
