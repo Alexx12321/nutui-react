@@ -84,9 +84,7 @@
   &-sidebar {
     display: flex;
     flex: 1;
-    /* #ifdef harmony */
     flex-basis: 33%;
-    /* #endif */
     flex-direction: column;
     .nut-numberkeyboard-body-wrapper {
       width: 100%;
