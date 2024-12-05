@@ -136,11 +136,6 @@ export const InputNumber: FunctionComponent<
       setInputValue(format(value))
     }
   }, [value])
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.style.width = `${inputValue.length * parseInt(window.getComputedStyle(inputRef.current).fontSize)}px`
-    }
-  }, [inputValue])
   const calcNextValue = (current: any, step: any, symbol: number) => {
     const dig = digits + 1
     return (

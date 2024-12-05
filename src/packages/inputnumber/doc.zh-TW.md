@@ -130,8 +130,7 @@ import { InputNumber } from '@nutui/nutui-react'
 
 | 名稱 | 說明 | 默認值 |
 | --- | --- | --- |
-| \--nutui-inputnumber-input-max-width | 數字輸入框中input的最大寬度 | `23px` |
-| \--nutui-inputnumber-input-min-width | 數字輸入框中input的最小寬度 | `12px` |
+| \--nutui-inputnumber-input-width | 數字輸入框中input的寬度 | `23px` |
 | \--nutui-inputnumber-input-height | 數字輸入框中input的高度 | `20px` |
 | \--nutui-inputnumber-input-background-color | 數字輸入框中input的背景顏色 | `$color-background` |
 | \--nutui-inputnumber-input-font-color | 數字輸入框中input的字號顏色 | `$color-title` |

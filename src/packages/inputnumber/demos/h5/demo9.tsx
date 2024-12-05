@@ -12,9 +12,9 @@ const Demo9 = () => {
         <ConfigProvider theme={customTheme3}>
           <InputNumber
             className="format-width"
-            defaultValue={5}
-            min={1}
-            max={10}
+            defaultValue={1000}
+            min={10}
+            max={15020}
             formatter={(value) =>
               `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
             }
@@ -25,9 +25,9 @@ const Demo9 = () => {
         <ConfigProvider theme={customTheme3}>
           <InputNumber
             className="format-width"
-            defaultValue={5}
+            defaultValue={100}
             min={0}
-            max={10}
+            max={100}
             formatter={(value) => `${value}%`}
           />
         </ConfigProvider>

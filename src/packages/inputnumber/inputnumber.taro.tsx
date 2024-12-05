@@ -14,7 +14,6 @@ import {
   Text,
 } from '@tarojs/components'
 import { Minus, Plus } from '@nutui/icons-react-taro'
-import { createSelectorQuery } from '@tarojs/taro'
 import { usePropsValue } from '@/utils/use-props-value'
 import { BasicComponent, ComponentDefaults } from '@/utils/typings'
 import { harmonyAndRn, rn } from '@/utils/platform-taro'
@@ -143,22 +142,7 @@ export const InputNumber: FunctionComponent<
       setInputValue(format(shadowValue))
     }
   }, [focused, shadowValue])
-  useEffect(() => {
-    createSelectorQuery()
-      .select(`#root${refRandomId.current} .nut-inputnumber-input`)
-      .fields(
-        {
-          computedStyle: ['fontSize'],
-        },
-        (res) => {
-          if (!res) return
-          if (inputRef.current) {
-            inputRef.current.style.width = `${inputValue.length * parseInt(res.fontSize)}px`
-          }
-        }
-      )
-      .exec()
-  }, [inputValue])
+
   useEffect(() => {
     if (async) {
       setShadowValue(bound(Number(value), Number(min), Number(max)))
