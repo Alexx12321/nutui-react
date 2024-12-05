@@ -95,7 +95,6 @@ export const InputNumber: FunctionComponent<
   const classes = classNames(classPrefix, className)
   const [focused, setFocused] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
-  const refRandomId = useRef(Math.random().toString(36).slice(-8))
   useEffect(() => {
     if (select && focused) {
       inputRef.current?.select?.()
@@ -251,7 +250,7 @@ export const InputNumber: FunctionComponent<
   }
 
   return (
-    <View className={classes} style={style} id={`root${refRandomId.current}`}>
+    <View className={classes} style={style}>
       <View className={`${classPrefix}-minus`} onClick={handleReduce}>
         {isRnAndHarmony ? (
           <Text
