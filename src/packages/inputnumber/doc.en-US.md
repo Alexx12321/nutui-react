@@ -146,7 +146,7 @@ The component provides the following CSS variables, which can be used to customi
 | \--nutui-inputnumber-input-font-size | The font size of the input in the number input box | `12px` |
 | \--nutui-inputnumber-input-border | The border value of the input in the number input box | `0` |
 | \--nutui-inputnumber-input-border-radius | The rounded corners of the input in the number input box | `4px` |
-| \--nutui-inputnumber-input-margin | The rounded corners of the input in the number input box | `2px` |
+| \--nutui-inputnumber-input-margin | The rounded corners of the input in the number input box | `0px` |
 | \--nutui-inputnumber-button-width | The width of the left and right buttons of the number input box | `20px` |
 | \--nutui-inputnumber-button-height | The height of the left and right buttons of the number input box | `20px` |
 | \--nutui-inputnumber-button-background-color | The background color of the left and right buttons of the number input box | `transparent` |

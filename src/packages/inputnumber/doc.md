@@ -146,7 +146,7 @@ import { InputNumber } from '@nutui/nutui-react'
 | \--nutui-inputnumber-input-font-size | 数字输入框中input的字号大小 | `12px` |
 | \--nutui-inputnumber-input-border | 数字输入框中input的border值 | `0` |
 | \--nutui-inputnumber-input-border-radius | 数字输入框中input的圆角 | `4px` |
-| \--nutui-inputnumber-input-margin | 数字输入框中input的margin值 | `2px` |
+| \--nutui-inputnumber-input-margin | 数字输入框中input的margin值 | `0px` |
 | \--nutui-inputnumber-button-width | 数字输入框左右按钮的宽度 | `20px` |
 | \--nutui-inputnumber-button-height | 数字输入框左右按钮的高度 | `20px` |
 | \--nutui-inputnumber-button-background-color | 数字输入框左右按钮的背景色 | `transparent` |
