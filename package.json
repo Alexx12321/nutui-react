@@ -58,6 +58,7 @@
     "dev:taro:jdrn": "pnpm run clone:rn && pnpm --dir ./packages/nutui-taro-demo dev:jdrn",
     "dev:taro:rn:dark": "THEME=dark pnpm dev:taro:rn",
     "dev:taro": "pnpm run update:taro:entry && pnpm --dir ./packages/nutui-taro-demo dev",
+    "dev:taro:h5": "pnpm dev:taro h5",
     "dev:jdtaro": "pnpm run update:taro:entry && JD=1 pnpm --dir ./packages/nutui-taro-demo dev",
     "dev:jdtaro:jdharmonycpp": "pnpm run clone:jdharmony cpp &&pnpm run update:taro:entry && JD=1 pnpm --dir ./packages/nutui-taro-demo dev:jdharmonycpp",
     "dev:jdtaro:jdharmony": "pnpm run clone:jdharmony  && pnpm run update:taro:entry && JD=1 pnpm --dir ./packages/nutui-taro-demo dev:jdharmony",
@@ -91,8 +92,8 @@
     "e2e:run:h5": "start-server-and-test dev http://localhost:5173/ cypress:run",
     "e2e:run:h5": "start-server-and-test dev http://localhost:5173/ cypress:run",
     "e2e:open:h5": "start-server-and-test dev http://localhost:5173/ cypress:open",
-    "e2e:run:taro": "start-server-and-test dev:taro h5 http://localhost:10086 cypress:run:taro",
-    "e2e:open:taro": "start-server-and-test dev:taro h5 http://localhost:10086 cypress:open:taro",
+    "e2e:run:taro": "start-server-and-test dev:taro:h5 http://localhost:10086 cypress:run:taro",
+    "e2e:open:taro": "start-server-and-test dev:taro:h5 http://localhost:10086 cypress:open:taro",
     "update:taro:entry": "node ./scripts/rn/update-taro-entry",
     "upgradeTaro": "pnpm --dir ./packages/nutui-taro-demo upgradeTaro"
   },
