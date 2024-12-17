@@ -49,3 +49,22 @@ test('disabled option', async () => {
   fireEvent.click(items[1])
   expect(onChange).not.toHaveBeenCalled()
 })
+test('matchByValue', async () => {
+  const list1 = [
+    { value: 'a', title: 'Opt a' },
+    { value: 'b', title: 'Opt b' },
+    { value: 'c', title: 'Opt c' },
+  ]
+  const onChange = vi.fn()
+  const { container } = render(
+    <SideBar style={{ height: 300 }} value="b" onChange={onChange}>
+      {list1.map((item) => (
+        <SideBar.Item key={item.value} title={item.title} value={item.value}>
+          Content {item.value}
+        </SideBar.Item>
+      ))}
+    </SideBar>
+  )
+  const items = container.querySelectorAll('.nut-sidebar-titles-item')
+  expect(items[1]).toHaveClass('nut-sidebar-titles-item-active')
+})
