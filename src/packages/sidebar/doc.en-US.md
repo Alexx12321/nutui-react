@@ -90,4 +90,4 @@ The component provides the following CSS variables, which can be used to customi
 | \--nutui-sidebar-active-font-weight | Font weight in active state | `500` |
 | \--nutui-sidebar-active-color | Font color in active state | `#fa2c19` |
 | \--nutui-sidebar-item-background | The background color of the content area | `$white` |
-| \--nutui-sidebar-item-padding, 24px | Padding of the content area | `24px 20px` |
+| \--nutui-sidebar-item-padding | Padding of the content area | `24px 20px` |

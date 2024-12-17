@@ -90,4 +90,4 @@ import { SideBar } from '@nutui/nutui-react'
 | \--nutui-sidebar-active-font-weight | 激活狀態下的字重 | `500` |
 | \--nutui-sidebar-active-color | 激活狀態下的字體顏色 | `#fa2c19` |
 | \--nutui-sidebar-item-background | 內容區域的背景色 | `$white` |
-| \--nutui-sidebar-item-padding, 24px | 內容區域的內邊距 | `24px 20px` |
+| \--nutui-sidebar-item-padding | 內容區域的內邊距 | `24px 20px` |

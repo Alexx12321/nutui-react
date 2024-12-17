@@ -72,7 +72,7 @@ export const SideBar: FC<Partial<SideBarProps>> & {
         if (props?.title || props?.value) {
           titles.push({
             title: props.title,
-            value: props.value || idx,
+            value: props.value ?? idx,
             disabled: props.disabled,
           })
         }
@@ -90,11 +90,7 @@ export const SideBar: FC<Partial<SideBarProps>> & {
         current = value
       }
     })
-    if (current !== '' && current !== value) {
-      setValue(current)
-    } else {
-      forceUpdate()
-    }
+    forceUpdate()
   }, [children])
 
   const classes = classNames(classPrefix, className)
@@ -121,8 +117,8 @@ export const SideBar: FC<Partial<SideBarProps>> & {
   }, [value])
 
   const tabChange = (item: SideBarItemProps) => {
-    onClick?.(item.value)
     if (item.disabled) return
+    onClick?.(item.value)
     setValue(item.value)
   }
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { SideBar } from '@nutui/nutui-react-taro'
 
-const Demo2 = () => {
+const Demo3 = () => {
   const [value, setValue] = useState<number | string>('b')
   return (
     <>
@@ -25,4 +25,4 @@ const Demo2 = () => {
     </>
   )
 }
-export default Demo2
+export default Demo3
