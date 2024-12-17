@@ -344,13 +344,25 @@
           "author": "hx"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "SideBar",
           "type": "component",
           "cName": "侧边栏导航",
-          "desc": "用于内容选择和切换",
+          "desc": "用于侧边内容选择和切换",
           "sort": 10,
           "show": true,
+          "taro": true,
+          "author": "Alex.hxy",
+          "v15": true
+        },
+        {
+          "version": "3.0.0",
+          "name": "SideBarItem",
+          "type": "component",
+          "cName": "侧边栏导航子组件",
+          "desc": "用于侧边内容选择和切换",
+          "sort": 10,
+          "show": false,
           "taro": true,
           "author": "Alex.hxy",
           "v15": true

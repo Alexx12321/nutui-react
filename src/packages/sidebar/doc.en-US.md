@@ -1,16 +1,16 @@
-# SideNavBar组件
+# SideBar component
 
-For content selection and switching
+Used for side content selection and switching
 
-## Import
+## Introduction
 
 ```tsx
-import { SideNavBar, SubSideNavBar, SideNavBarItem } from '@nutui/nutui-react'
+import { SideBar } from '@nutui/nutui-react'
 ```
 
-## Demo
+## Sample code
 
-### Basic Usage
+### Basic usage
 
 :::demo
 
@@ -18,7 +18,7 @@ import { SideNavBar, SubSideNavBar, SideNavBarItem } from '@nutui/nutui-react'
 
 :::
 
-### Navigation Nesting (Up To Three Levels Recommended)
+### Disable option
 
 :::demo
 
@@ -26,39 +26,52 @@ import { SideNavBar, SubSideNavBar, SideNavBarItem } from '@nutui/nutui-react'
 
 :::
 
-## SideNavBar
+### Match based on value
+
+:::demo
+
+<CodeBlock src='h5/demo3.tsx'></CodeBlock>
+
+:::
+
+### Multiple titles
+
+:::demo
+
+<CodeBlock src='h5/demo4.tsx'></CodeBlock>
+
+:::
+
+### Set the scroll animation duration
+
+:::demo
+
+<CodeBlock src='h5/demo5.tsx'></CodeBlock>
+
+:::
+
+## SideBar
 
 ### Props
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| visible | whether the component is visible | `boolean` | `false` |
-| title | overall title | `string` | `-` |
-| width | mask width in percentage | `string` | `80%` |
-| position | popup position | `left` \| `right` | `left` |
-| indent | indent width | `number` | `20` |
-| onClose | Triggered when the mask is closed | `-` | `-` |
+| value | The key of the currently activated `item` | `string \| number` | `-` |
+| defaultValue | When value is not set, the default value of the key of `item` | `string \| number` | `-` |
+| contentDuration | content scroll animation duration | `number` | `0` |
+| sidebarDuration | Sidebar scroll animation duration | `number` | `0` |
+| onClick | Triggered when the label is clicked | `(index: string \| number) => void` | `-` |
+| onChange | Triggered when the currently active label changes | `(index: string \| number) => void` | `-` |
 
-## SubSideNavBar
-
-### Props
-
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| value | unique identifier for navigation | `string` \| `number` | `-` |
-| title | overall title | `string` | `-` |
-| open | whether the navigation is expanded by default | `boolean` | `true` |
-| onClick | Navigation click | `({title: string, value: string \| number, isShow: boolean}) => void` | `-` |
-
-## SideNavBarItem
+## SideBar.Item
 
 ### Props
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| value | unique identifier for navigation | `string` \| `number` | `-` |
-| title | overall title | `string` | `-` |
-| onClick | Navigation click | `({title: string, value: string \| number}) => void` | `-` |
+| title | title | `string` | `-` |
+| value | tag Key, matched identifier, defaults to index value | `string` \| `number` | `-` |
+| disabled | Whether to disable the label | `boolean` | `false` |
 
 ## Theming
 
@@ -68,13 +81,13 @@ The component provides the following CSS variables, which can be used to customi
 
 | Name | Description | Default |
 | --- | --- | --- |
-| \--nutui-sidenavbar-content-bg-color | sidebar navigation background color | `$white` |
-| \--nutui-sidenavbar-item-height | The height of each item in the sidebar | `40px` |
-| \--nutui-sidenavbar-title-padding | padding for title | `10px 8px 10px 20px` |
-| \--nutui-sidenavbar-title-background | The background color of the title | `$color-background` |
-| \--nutui-sidenavbar-title-color | The font color of the title | `$color-title` |
-| \--nutui-sidenavbar-sub-title-padding | Padding of subtitle | `10px 8px 10px 35px` |
-| \--nutui-sidenavbar-sub-title-background | Subtitle background color | `$color-background-sunken` |
-| \--nutui-sidenavbar-sub-title-color | Subtitle font color | `$color-title` |
-| \--nutui-sidenavbar-sub-list-background | option list background color | `$color-background-sunken` |
-| \--nutui-sidenavbar-sub-list-color | option list font color | `$color-title` |
+| \--nutui-sidebar-background-color | Sidebar navigation background color | `$color-background` |
+| \--nutui-sidebar-border-radius | Rounded corners of the sidebar | `0` |
+| \--nutui-sidebar-width | Sidebar width | `104px` |
+| \--nutui-sidebar-title-height | Sidebar title height | `52px` |
+| \--nutui-sidebar-inactive-font-size | Font size in normal state | `$font-size-base` |
+| \--nutui-sidebar-active-font-size | Font size in active state | `$font-size-xl` |
+| \--nutui-sidebar-active-font-weight | Font weight in active state | `500` |
+| \--nutui-sidebar-active-color | Font color in active state | `#fa2c19` |
+| \--nutui-sidebar-item-background | The background color of the content area | `$white` |
+| \--nutui-sidebar-item-padding, 24px | Padding of the content area | `24px 20px` |

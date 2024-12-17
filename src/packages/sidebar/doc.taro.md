@@ -1,15 +1,11 @@
-# SideNavBar组件
+# SideBar组件
 
-用于内容选择和切换
+用于侧边内容选择和切换
 
 ## 引入
 
 ```tsx
-import {
-  SideNavBar,
-  SubSideNavBar,
-  SideNavBarItem,
-} from '@nutui/nutui-react-taro'
+import { SideBar } from '@nutui/nutui-react-taro'
 ```
 
 ## 示例代码
@@ -22,7 +18,7 @@ import {
 
 :::
 
-### 嵌套及回调
+### 禁用选项
 
 :::demo
 
@@ -30,39 +26,52 @@ import {
 
 :::
 
-## SideNavBar
+### 根据value匹配
+
+:::demo
+
+<CodeBlock src='taro/demo3.tsx'></CodeBlock>
+
+:::
+
+### 多个标题
+
+:::demo
+
+<CodeBlock src='taro/demo4.tsx'></CodeBlock>
+
+:::
+
+### 设置滚动动画时长
+
+:::demo
+
+<CodeBlock src='taro/demo5.tsx'></CodeBlock>
+
+:::
+
+## SideBar
 
 ### Props
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| visible | 组件是否显示 | `boolean` | `false` |
-| title | 整体标题 | `string` | `-` |
-| width | 遮罩宽度百分比 | `string` | `80%` |
-| position | 弹出位置 | `left` \| `right` | `left` |
-| indent | 缩进宽度 | `number` | `20` |
-| onClose | 关闭遮罩时触发 | `-` | `-` |
+| value | 当前激活的`item`的key | `string \| number` | `-` |
+| defaultValue | 未设置value时，`item`的key的默认值 | `string \| number` | `-` |
+| contentDuration | 内容滚动动画时长 | `number` | `0` |
+| sidebarDuration | 侧栏滚动动画时长 | `number` | `0` |
+| onClick | 点击标签时触发 | `(index: string \| number) => void` | `-` |
+| onChange | 当前激活的标签改变时触发 | `(index: string \| number) => void` | `-` |
 
-## SubSideNavBar
-
-### Props
-
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| key | 导航唯一标识 | `string` \| `number` | `-` |
-| title | 整体标题 | `string` | `-` |
-| open | 导航是否默认展开 | `boolean` | `true` |
-| onClick | 导航点击 | `({title: string, value: string \| number, isShow: boolean}) => void` | `-` |
-
-## SideNavBarItem
+## SideBar.Item
 
 ### Props
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| key | 导航唯一标识 | `string` \| `number` | `-` |
-| title | 整体标题 | `string` | `-` |
-| onClick | 导航点击 | `({title: string, value: string \| number}) => void` | `-` |
+| title | 标题 | `string` | `-` |
+| value | 标签 Key , 匹配的标识符, 默认为索引值 | `string` \| `number` | `-` |
+| disabled | 是否禁用标签 | `boolean` | `false` |
 
 ## 主题定制
 
@@ -72,13 +81,13 @@ import {
 
 | 名称 | 说明 | 默认值 |
 | --- | --- | --- |
-| \--nutui-sidenavbar-content-bg-color | 侧边栏导航背景色 | `$white` |
-| \--nutui-sidenavbar-item-height | 侧边栏每项的高度 | `40px` |
-| \--nutui-sidenavbar-title-padding | 标题的内边距 | `10px 8px 10px 20px` |
-| \--nutui-sidenavbar-title-background | 标题的背景色 | `$color-background` |
-| \--nutui-sidenavbar-title-color | 标题的字体颜色 | `$color-title` |
-| \--nutui-sidenavbar-sub-title-padding | 子标题的内边距 | `10px 8px 10px 35px` |
-| \--nutui-sidenavbar-sub-title-background | 子标题背景色 | `$color-background-sunken` |
-| \--nutui-sidenavbar-sub-title-color | 子标题字体颜色 | `$color-title` |
-| \--nutui-sidenavbar-sub-list-background | 选项列表背景色 | `$color-background-sunken` |
-| \--nutui-sidenavbar-sub-list-color | 选项列表字体颜色 | `$color-title` |
+| \--nutui-sidebar-background-color | 侧边栏导航背景色 | `$color-background` |
+| \--nutui-sidebar-border-radius | 侧边栏的圆角 | `0` |
+| \--nutui-sidebar-width | 侧边栏宽度 | `104px` |
+| \--nutui-sidebar-title-height | 侧边栏标题高度 | `52px` |
+| \--nutui-sidebar-inactive-font-size | 普通状态下的字体大小 | `$font-size-base` |
+| \--nutui-sidebar-active-font-size | 激活状态下的字体大小 | `$font-size-xl` |
+| \--nutui-sidebar-active-font-weight | 激活状态下的字重 | `500` |
+| \--nutui-sidebar-active-color | 激活状态下的字体颜色 | `#fa2c19` |
+| \--nutui-sidebar-item-background | 内容区域的背景色 | `$white` |
+| \--nutui-sidebar-item-padding, 24px | 内容区域的内边距 | `24px 20px` |

@@ -1,4 +1,5 @@
-import { SideNavBar } from './sidebar.taro'
+import { SideBar } from './sidebar.taro'
 
-export type { SideNavBarProps } from './sidebar.taro'
-export default SideNavBar
+export type { SideBarProps } from './types'
+
+export default SideBar

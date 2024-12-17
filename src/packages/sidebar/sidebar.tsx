@@ -1,29 +1,13 @@
 import React, { FC, useEffect, useRef } from 'react'
 import classNames from 'classnames'
-import { BasicComponent, ComponentDefaults } from '@/utils/typings'
+import { ComponentDefaults } from '@/utils/typings'
 import SideBarItem from '@/packages/sidebaritem'
 import raf from '@/utils/raf'
 import { usePropsValue } from '@/utils/use-props-value'
 import { useForceUpdate } from '@/utils/use-force-update'
 import { mergeProps } from '@/utils/merge-props'
 
-export type SideBarItemProps = {
-  title: string
-  disabled: boolean
-  active?: boolean
-  value: string | number
-}
-
-export interface SideBarProps extends BasicComponent {
-  value: string | number
-  defaultValue: string | number
-  contentDuration: number
-  sidebarDuration: number
-  title: () => JSX.Element[]
-  onChange: (index: string | number) => void
-  onClick: (index: string | number) => void
-  children?: React.ReactNode
-}
+import { SideBarItemProps, SideBarProps } from './types'
 
 const defaultProps = {
   ...ComponentDefaults,
@@ -38,7 +22,6 @@ export const SideBar: FC<Partial<SideBarProps>> & {
   const {
     contentDuration,
     sidebarDuration,
-    title,
     children,
     onClick,
     onChange,
@@ -145,28 +128,26 @@ export const SideBar: FC<Partial<SideBarProps>> & {
   return (
     <div className={classes} {...rest}>
       <div className={classesTitle} ref={navRef}>
-        {!!title && typeof title === 'function'
-          ? title()
-          : titles.current.map((item) => {
-              return (
-                <div
-                  onClick={() => {
-                    tabChange(item)
-                  }}
-                  className={classNames(`${classPrefix}-titles-item`, {
-                    [`${classPrefix}-titles-item-active`]:
-                      !item.disabled && String(item.value) === String(value),
-                    [`${classPrefix}-titles-item-disabled`]: item.disabled,
-                  })}
-                  ref={(ref: HTMLDivElement) => titleItemsRef.current.push(ref)}
-                  key={item.value}
-                >
-                  <div className={`${classPrefix}-titles-item-text`}>
-                    {item.title}
-                  </div>
-                </div>
-              )
-            })}
+        {titles.current.map((item) => {
+          return (
+            <div
+              onClick={() => {
+                tabChange(item)
+              }}
+              className={classNames(`${classPrefix}-titles-item`, {
+                [`${classPrefix}-titles-item-active`]:
+                  !item.disabled && String(item.value) === String(value),
+                [`${classPrefix}-titles-item-disabled`]: item.disabled,
+              })}
+              ref={(ref: HTMLDivElement) => titleItemsRef.current.push(ref)}
+              key={item.value}
+            >
+              <div className={`${classPrefix}-titles-item-text`}>
+                {item.title}
+              </div>
+            </div>
+          )
+        })}
       </div>
       <div className={`${classPrefix}-content-wrap`}>
         <div className={`${classPrefix}-content`} style={getContentStyle()}>

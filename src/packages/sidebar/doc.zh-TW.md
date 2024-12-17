@@ -1,11 +1,11 @@
-# SideNavBar組件
+# SideBar組件
 
-用於內容選擇和切換
+用於側邊內容選擇和切換
 
 ## 引入
 
 ```tsx
-import { SideNavBar, SubSideNavBar, SideNavBarItem } from '@nutui/nutui-react'
+import { SideBar } from '@nutui/nutui-react'
 ```
 
 ## 示例代碼
@@ -18,7 +18,7 @@ import { SideNavBar, SubSideNavBar, SideNavBarItem } from '@nutui/nutui-react'
 
 :::
 
-### 導航嵌套（建議最多三層）
+### 禁用選項
 
 :::demo
 
@@ -26,41 +26,54 @@ import { SideNavBar, SubSideNavBar, SideNavBarItem } from '@nutui/nutui-react'
 
 :::
 
-## SideNavBar
+### 根據value匹配
+
+:::demo
+
+<CodeBlock src='h5/demo3.tsx'></CodeBlock>
+
+:::
+
+### 多個標題
+
+:::demo
+
+<CodeBlock src='h5/demo4.tsx'></CodeBlock>
+
+:::
+
+### 設置滾動動畫時長
+
+:::demo
+
+<CodeBlock src='h5/demo5.tsx'></CodeBlock>
+
+:::
+
+## SideBar
 
 ### Props
 
 | 屬性 | 說明 | 類型 | 默認值 |
 | --- | --- | --- | --- |
-| visible | 組件是否顯示 | `boolean` | `false` |
-| title | 整體標題 | `string` | `-` |
-| width | 遮罩寬度百分比 | `string` | `80%` |
-| position | 彈出位置 | `left` \| `right` | `left` |
-| offset | 縮進寬度 | `number` | `20` |
-| onClose | 關閉遮罩時觸發 | `-` | `-` |
+| value | 當前激活的`item`的key | `string \| number` | `-` |
+| defaultValue | 未設置value時，`item`的key的默認值 | `string \| number` | `-` |
+| contentDuration | 內容滾動動畫時長 | `number` | `0` |
+| sidebarDuration | 側欄滾動動畫時長 | `number` | `0` |
+| onClick | 點擊標簽時觸發 | `(index: string \| number) => void` | `-` |
+| onChange | 當前激活的標簽改變時觸發 | `(index: string \| number) => void` | `-` |
 
-## SubSideNavBar
-
-### Props
-
-| 屬性 | 說明 | 類型 | 默認值 |
-| --- | --- | --- | --- |
-| value | 導航唯一標識 | `string` \| `number` | `-` |
-| title | 整體標題 | `string` | `-` |
-| open | 導航是否默認展開 | `boolean` | `true` |
-| onClick | 導航點擊 | `({title: string, value: string \| number, isShow: boolean}) => void` | `-` |
-
-## SideNavBarItem
+## SideBar.Item
 
 ### Props
 
 | 屬性 | 說明 | 類型 | 默認值 |
 | --- | --- | --- | --- |
-| value | 導航唯一標識 | `string` \| `number` | `-` |
-| title | 整體標題 | `string` | `-` |
-| onClick | 導航點擊 | `({title: string, value: string \| number}) => void` | `-` |
+| title | 標題 | `string` | `-` |
+| value | 標簽 Key , 匹配的標識符, 默認為索引值 | `string` \| `number` | `-` |
+| disabled | 是否禁用標簽 | `boolean` | `false` |
 
-## 主題定制
+## 主題定製
 
 ### 樣式變量
 
@@ -68,13 +81,13 @@ import { SideNavBar, SubSideNavBar, SideNavBarItem } from '@nutui/nutui-react'
 
 | 名稱 | 說明 | 默認值 |
 | --- | --- | --- |
-| \--nutui-sidenavbar-content-bg-color | 側邊欄導航背景色 | `$white` |
-| \--nutui-sidenavbar-item-height | 側邊欄每項的高度 | `40px` |
-| \--nutui-sidenavbar-title-padding | 標題的內邊距 | `10px 8px 10px 20px` |
-| \--nutui-sidenavbar-title-background | 標題的背景色 | `$color-background` |
-| \--nutui-sidenavbar-title-color | 標題的字體顏色 | `$color-title` |
-| \--nutui-sidenavbar-sub-title-padding | 子標題的內邊距 | `10px 8px 10px 35px` |
-| \--nutui-sidenavbar-sub-title-background | 子標題背景色 | `$color-background-sunken` |
-| \--nutui-sidenavbar-sub-title-color | 子標題字體顏色 | `$color-title` |
-| \--nutui-sidenavbar-sub-list-background | 選項列表背景色 | `$color-background-sunken` |
-| \--nutui-sidenavbar-sub-list-color | 選項列表字體顏色 | `$color-title` |
+| \--nutui-sidebar-background-color | 側邊欄導航背景色 | `$color-background` |
+| \--nutui-sidebar-border-radius | 側邊欄的圓角 | `0` |
+| \--nutui-sidebar-width | 側邊欄寬度 | `104px` |
+| \--nutui-sidebar-title-height | 側邊欄標題高度 | `52px` |
+| \--nutui-sidebar-inactive-font-size | 普通狀態下的字體大小 | `$font-size-base` |
+| \--nutui-sidebar-active-font-size | 激活狀態下的字體大小 | `$font-size-xl` |
+| \--nutui-sidebar-active-font-weight | 激活狀態下的字重 | `500` |
+| \--nutui-sidebar-active-color | 激活狀態下的字體顏色 | `#fa2c19` |
+| \--nutui-sidebar-item-background | 內容區域的背景色 | `$white` |
+| \--nutui-sidebar-item-padding, 24px | 內容區域的內邊距 | `24px 20px` |
