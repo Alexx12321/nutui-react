@@ -14,7 +14,7 @@ const Demo1 = () => {
         }}
       >
         {list.map((item) => (
-          <SideBar.Item key={item} title={`Option ${item + 1}`}>
+          <SideBar.Item key={item} title={`Opt ${item + 1}`}>
             Content {item + 1}
           </SideBar.Item>
         ))}

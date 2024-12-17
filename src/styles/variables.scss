@@ -2178,7 +2178,29 @@ $navbar-title-font-color: var(
   --nutui-navbar-title-font-color,
   $color-title
 ) !default;
-
+// sidebar（✅）
+$sidebar-background-color: var(
+  --nutui-sidebar-background-color,
+  $color-background
+) !default;
+$sidebar-border-radius: var(--nutui-sidebar-border-radius, 0) !default;
+$sidebar-width: var(--nutui-sidebar-width, 104px) !default;
+$sidebar-title-height: var(--nutui-sidebar-title-height, 52px) !default;
+$sidebar-inactive-font-size: var(
+  --nutui-sidebar-inactive-font-size,
+  $font-size-base
+) !default;
+$sidebar-active-font-size: var(
+  --nutui-sidebar-active-font-size,
+  $font-size-xl
+) !default;
+$sidebar-active-font-weight: var(
+  --nutui-sidebar-active-font-weight,
+  500
+) !default;
+$sidebar-active-color: var(--nutui-sidebar-active-color, #fa2c19) !default;
+$sidebar-item-background: var(--nutui-sidebar-item-background, $white) !default;
+$sidebar-item-padding: var(--nutui-sidebar-item-padding, 24px 20px) !default;
 // sidenavbar（✅）
 $sidenavbar-content-bg-color: var(
   --nutui-sidenavbar-content-bg-color,

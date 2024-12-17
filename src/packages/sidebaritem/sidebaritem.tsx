@@ -1,9 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import classNames from 'classnames'
-
-interface SideBarItemInnerProps {
-  autoHeightClassName: string
-}
+import { mergeProps } from '@/utils/merge-props'
 
 export interface SideBarItemProps {
   title: string | number
@@ -19,13 +16,10 @@ const defaultProps = {
   disabled: false,
 } as SideBarItemProps
 
-export const SideBarItem: FunctionComponent<
-  Partial<SideBarItemProps & SideBarItemInnerProps>
-> = (props) => {
-  const { children, autoHeightClassName, className, disabled } = {
-    ...defaultProps,
-    ...props,
-  }
+export const SideBarItem: FunctionComponent<Partial<SideBarItemProps>> = (
+  props
+) => {
+  const { children, className, disabled } = mergeProps(defaultProps, props)
 
   const classPrefix = 'nut-sidebaritem'
   const classes = classNames(
@@ -33,7 +27,6 @@ export const SideBarItem: FunctionComponent<
     {
       active: !disabled && (props as any).active,
     },
-    autoHeightClassName,
     className
   )
 

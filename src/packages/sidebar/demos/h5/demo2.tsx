@@ -12,9 +12,9 @@ const Demo2 = () => {
           setValue(value)
         }}
       >
-        <SideBar.Item title="Option 1">Content 1</SideBar.Item>
-        <SideBar.Item title="Option 2">Content 2</SideBar.Item>
-        <SideBar.Item title="Option 3" disabled />
+        <SideBar.Item title="Opt 1">Content 1</SideBar.Item>
+        <SideBar.Item title="Opt 2">Content 2</SideBar.Item>
+        <SideBar.Item title="Opt 3" disabled />
       </SideBar>
     </>
   )

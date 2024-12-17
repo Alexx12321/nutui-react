@@ -1,80 +1,63 @@
-import React, { FunctionComponent, useEffect, useRef } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import classNames from 'classnames'
 import { BasicComponent, ComponentDefaults } from '@/utils/typings'
 import SideBarItem from '@/packages/sidebaritem'
 import raf from '@/utils/raf'
 import { usePropsValue } from '@/utils/use-props-value'
 import { useForceUpdate } from '@/utils/use-force-update'
+import { mergeProps } from '@/utils/merge-props'
 
-export type TabsTitle = {
+export type SideBarItemProps = {
   title: string
   disabled: boolean
   active?: boolean
   value: string | number
 }
 
-export interface TabsProps extends BasicComponent {
-  tabStyle: React.CSSProperties
-  switchOnEnd: boolean
+export interface SideBarProps extends BasicComponent {
   value: string | number
   defaultValue: string | number
-  activeColor: string
-  direction: 'horizontal' | 'vertical'
-  activeType: 'line' | 'smile' | 'simple' | 'card' | 'button' | 'divider'
-  duration: number | string
-  align: 'left' | 'right'
+  contentDuration: number
+  sidebarDuration: number
   title: () => JSX.Element[]
   onChange: (index: string | number) => void
   onClick: (index: string | number) => void
-  autoHeight: boolean
   children?: React.ReactNode
 }
 
 const defaultProps = {
   ...ComponentDefaults,
-  tabStyle: {},
-  activeColor: '',
-  duration: 0,
-  autoHeight: false,
-  switchOnEnd: true,
-} as TabsProps
+  contentDuration: 0,
+  sidebarDuration: 0,
+} as SideBarProps
 
 const classPrefix = 'nut-sidebar'
-export const SideBar: FunctionComponent<Partial<TabsProps>> & {
+export const SideBar: FC<Partial<SideBarProps>> & {
   Item: typeof SideBarItem
 } = (props) => {
   const {
-    activeColor,
-    tabStyle,
-    duration,
-    align,
+    contentDuration,
+    sidebarDuration,
     title,
     children,
     onClick,
     onChange,
     className,
-    autoHeight,
-    value: outerValue,
-    defaultValue: outerDefaultValue,
     ...rest
-  } = {
-    ...defaultProps,
-    ...props,
-  }
+  } = mergeProps(defaultProps, props)
 
   const [value, setValue] = usePropsValue<string | number>({
-    value: outerValue,
-    defaultValue: outerDefaultValue,
+    value: props.value,
+    defaultValue: props.defaultValue,
     finalValue: 0,
     onChange,
   })
   const titleItemsRef = useRef<HTMLDivElement[]>([])
   const navRef = useRef<HTMLDivElement>(null)
-  const scrollDirection = (nav: any, to: number, duration: number) => {
+  const scroll = (nav: any, to: number) => {
     let count = 0
     const from = nav.scrollTop
-    const frames = duration === 0 ? 1 : Math.round((duration * 1000) / 16)
-
+    const frames = sidebarDuration === 0 ? 1 : Math.round(sidebarDuration / 16)
     function animate() {
       nav.scrollTop += (to - from) / frames
       if (++count < frames) {
@@ -83,7 +66,7 @@ export const SideBar: FunctionComponent<Partial<TabsProps>> & {
     }
     animate()
   }
-  const scrollIntoView = (index: number, immediate?: boolean) => {
+  const scrollIntoView = (index: number) => {
     const nav = navRef.current
     const titleItem = titleItemsRef.current
     const titlesLength = titles.current.length
@@ -93,12 +76,13 @@ export const SideBar: FunctionComponent<Partial<TabsProps>> & {
     }
     const title = titleItem[itemLength - titlesLength + index]
     const runTop = title.offsetTop - nav.offsetTop + 10
-    const to = runTop - (nav.offsetHeight - title.offsetHeight) / 2
-    scrollDirection(nav, to, immediate ? 0 : 0.3)
+    const to =
+      runTop - (nav.offsetHeight - title.offsetHeight) / 2 + title.offsetHeight
+    scroll(nav, to)
   }
 
   const getTitles = () => {
-    const titles: TabsTitle[] = []
+    const titles: SideBarItemProps[] = []
     React.Children.forEach(children, (child: any, idx) => {
       if (React.isValidElement(child)) {
         const props: any = child?.props
@@ -113,14 +97,13 @@ export const SideBar: FunctionComponent<Partial<TabsProps>> & {
     })
     return titles
   }
-  const titles = useRef<TabsTitle[]>(getTitles())
+  const titles = useRef<SideBarItemProps[]>(getTitles())
   const forceUpdate = useForceUpdate()
   useEffect(() => {
     titles.current = getTitles()
     let current: string | number = ''
     titles.current.forEach((title) => {
-      // eslint-disable-next-line eqeqeq
-      if (title.value == value) {
+      if (title.value === value) {
         current = value
       }
     })
@@ -131,39 +114,37 @@ export const SideBar: FunctionComponent<Partial<TabsProps>> & {
     }
   }, [children])
 
-  const classes = classNames(classPrefix, `${classPrefix}-vertical`, className)
-  const classesTitle = classNames(`${classPrefix}-titles`, {
-    [`${classPrefix}-titles-scrollable`]: true,
-    [`${classPrefix}-titles-${align}`]: align,
-  })
+  const classes = classNames(classPrefix, className)
+  const classesTitle = classNames(
+    `${classPrefix}-titles`,
+    `${classPrefix}-titles-scrollable`
+  )
 
   const getContentStyle = () => {
-    // eslint-disable-next-line eqeqeq
-    let index = titles.current.findIndex((t) => t.value == value)
+    let index = titles.current.findIndex((t) => t.value === value)
     index = index < 0 ? 0 : index
     return {
       transform: `translate3d( 0,-${index * 100}%, 0)`,
-      transitionDuration: `${duration}ms`,
+      transitionDuration: `${contentDuration}ms`,
     }
   }
   useEffect(() => {
     let index = titles.current.findIndex((t) => t.value === value)
     index = index < 0 ? 0 : index
-    setTimeout(() => {
+    const rafId = requestAnimationFrame(() => {
       scrollIntoView(index)
     })
+    return () => cancelAnimationFrame(rafId)
   }, [value])
 
-  const tabChange = (item: TabsTitle) => {
-    onClick && onClick(item.value)
-    if (item.disabled) {
-      return
-    }
+  const tabChange = (item: SideBarItemProps) => {
+    onClick?.(item.value)
+    if (item.disabled) return
     setValue(item.value)
   }
   return (
     <div className={classes} {...rest}>
-      <div className={classesTitle} style={{ ...tabStyle }} ref={navRef}>
+      <div className={classesTitle} ref={navRef}>
         {!!title && typeof title === 'function'
           ? title()
           : titles.current.map((item) => {
@@ -176,17 +157,11 @@ export const SideBar: FunctionComponent<Partial<TabsProps>> & {
                     [`${classPrefix}-titles-item-active`]:
                       !item.disabled && String(item.value) === String(value),
                     [`${classPrefix}-titles-item-disabled`]: item.disabled,
-                    [`${classPrefix}-titles-item-${align}`]: align,
                   })}
                   ref={(ref: HTMLDivElement) => titleItemsRef.current.push(ref)}
                   key={item.value}
                 >
-                  <div
-                    className={classNames(
-                      `${classPrefix}-ellipsis`,
-                      `${classPrefix}-titles-item-text`
-                    )}
-                  >
+                  <div className={`${classPrefix}-titles-item-text`}>
                     {item.title}
                   </div>
                 </div>
@@ -204,13 +179,9 @@ export const SideBar: FunctionComponent<Partial<TabsProps>> & {
               active: value === child.props.value,
             }
 
-            if (
-              String(value) !== String(child.props.value || idx) &&
-              autoHeight
-            ) {
+            if (String(value) !== String(child.props.value || idx)) {
               childProps = {
                 ...childProps,
-                autoHeightClassName: 'inactive',
               }
             }
             return React.cloneElement(child, childProps)
