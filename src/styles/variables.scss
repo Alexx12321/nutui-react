@@ -2192,13 +2192,16 @@ $sidebar-inactive-font-size: var(
 ) !default;
 $sidebar-active-font-size: var(
   --nutui-sidebar-active-font-size,
-  $font-size-xl
+  $font-size-l
 ) !default;
 $sidebar-active-font-weight: var(
   --nutui-sidebar-active-font-weight,
-  500
+  $font-weight-bold
 ) !default;
-$sidebar-active-color: var(--nutui-sidebar-active-color, #fa2c19) !default;
+$sidebar-active-color: var(
+  --nutui-sidebar-active-color,
+  $color-primary
+) !default;
 $sidebar-item-background: var(--nutui-sidebar-item-background, $white) !default;
 $sidebar-item-padding: var(--nutui-sidebar-item-padding, 24px 20px) !default;
 // sidenavbar（✅）

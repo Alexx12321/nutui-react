@@ -86,8 +86,8 @@ The component provides the following CSS variables, which can be used to customi
 | \--nutui-sidebar-width | Sidebar width | `104px` |
 | \--nutui-sidebar-title-height | Sidebar title height | `52px` |
 | \--nutui-sidebar-inactive-font-size | Font size in normal state | `$font-size-base` |
-| \--nutui-sidebar-active-font-size | Font size in active state | `$font-size-xl` |
-| \--nutui-sidebar-active-font-weight | Font weight in active state | `500` |
-| \--nutui-sidebar-active-color | Font color in active state | `#fa2c19` |
+| \--nutui-sidebar-active-font-size | Font size in active state | `$font-size-l` |
+| \--nutui-sidebar-active-font-weight | Font weight in active state | `$font-weight-bold` |
+| \--nutui-sidebar-active-color | Font color in active state | `$color-primary` |
 | \--nutui-sidebar-item-background | The background color of the content area | `$white` |
 | \--nutui-sidebar-item-padding | Padding of the content area | `24px 20px` |

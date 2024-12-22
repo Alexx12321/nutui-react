@@ -45,12 +45,15 @@
       flex: none;
       font-size: $sidebar-inactive-font-size;
       &-text {
+        font-family: PingFangSC-Regular;
         text-align: center;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+        color: $color-text;
       }
-      &-active {
+      &-active .nut-sidebar-titles-item-text {
+        font-family: PingFangSC-Semibold;
         color: $sidebar-active-color;
         font-weight: $sidebar-active-font-weight;
         font-size: $sidebar-active-font-size;

@@ -86,8 +86,8 @@ import { SideBar } from '@nutui/nutui-react'
 | \--nutui-sidebar-width | 侧边栏宽度 | `104px` |
 | \--nutui-sidebar-title-height | 侧边栏标题高度 | `52px` |
 | \--nutui-sidebar-inactive-font-size | 普通状态下的字体大小 | `$font-size-base` |
-| \--nutui-sidebar-active-font-size | 激活状态下的字体大小 | `$font-size-xl` |
-| \--nutui-sidebar-active-font-weight | 激活状态下的字重 | `500` |
-| \--nutui-sidebar-active-color | 激活状态下的字体颜色 | `#fa2c19` |
+| \--nutui-sidebar-active-font-size | 激活状态下的字体大小 | `$font-size-l` |
+| \--nutui-sidebar-active-font-weight | 激活状态下的字重 | `$font-weight-bold` |
+| \--nutui-sidebar-active-color | 激活状态下的字体颜色 | `$color-primary` |
 | \--nutui-sidebar-item-background | 内容区域的背景色 | `$white` |
 | \--nutui-sidebar-item-padding | 内容区域的内边距 | `24px 20px` |
