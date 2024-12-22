@@ -302,6 +302,16 @@ plugins: [
 
 - `offset` 重命名为 `indent`
 
+#### SideBar
+
+- 新增SideBar组件
+- 支持属性value，用于当前激活的`item`的key
+- 支持属性defaultValue, 表示未设置value时，`item`的key的默认值
+- 支持属性contentDuration， 用于内容滚动动画时长
+- 支持属性sidebarDuration, 用于侧栏滚动动画时长
+- 支持属性onClick, 点击标签时触发
+- 支持属性onChange, 当前激活的标签改变时触发
+
 #### Tabbar
 
 - `unactiveColor` 重命名为 `inactiveColor`
@@ -527,11 +537,11 @@ plugins: [
 
 - `maximize` 重命名为 `maxFileSize`
 - `maximum` 重命名为 `maxCount`
-- `listType ` 重命名为 `previewType`
-- `isDeletable ` 重命名为 `deletable`
-- `isPreview` 重命名为 ` preview`
-- `defaultImg` 重命名为 ` previewUrl`
-- `defaultFileList` 重命名为 ` defaultValue`
+- `listType` 重命名为 `previewType`
+- `isDeletable` 重命名为 `deletable`
+- `isPreview` 重命名为 `preview`
+- `defaultImg` 重命名为 `previewUrl`
+- `defaultFileList` 重命名为 `defaultValue`
 - `uploadIconTip` 重命名为 `uploadLabel`，类型变更为 `ReactNode`
 - `onBeforeUpload` 重命名为 `beforeUpload`
 - `onBeforeXhrUpload` 重命名为 `beforeXhrUpload`
@@ -616,7 +626,7 @@ plugins: [
 - 移除 `isAsync`，通过 `checked`实现
 - 移除 `activeColor` ，通过css变量`--nutui-switch-open-background-color`实现
 - 移除 `inactiveColor`，通过css变量`--nutui-switch-close-background-color`实现
-- `activeText 属性类型更改为 `ReactNode`
+- `activeText 属性类型更改为`ReactNode`
 - `inactiveText` 属性类型更改为 `ReactNode`
 
 #### Toast
@@ -803,7 +813,7 @@ plugins: [
   - 移除 `pageContent`，通过 indicator 实现
   - `autoplay` 重命名为 `autoplay`
   - `initPage` 重命名为 `defaultValue`
-  - `paginationVisible` 重命名为 `indicator`，类型改为` ReactNode`
+  - `paginationVisible` 重命名为 `indicator`，类型改为`ReactNode`
   - `isPreventDefault` 重命名为 `preventDefault`
   - `isStopPropagation` 重命名为 `stopPropagation`
   - `isCenter` 重命名为 `center`
