@@ -84,6 +84,7 @@ import { SideBar } from '@nutui/nutui-react'
 | \--nutui-sidebar-background-color | 側邊欄導航背景色 | `$color-background` |
 | \--nutui-sidebar-border-radius | 側邊欄的圓角 | `0` |
 | \--nutui-sidebar-width | 側邊欄寬度 | `104px` |
+| \--nutui-sidebar-max-width | 側邊欄最大寬度 | `128px` |
 | \--nutui-sidebar-title-height | 側邊欄標題高度 | `52px` |
 | \--nutui-sidebar-inactive-font-size | 普通狀態下的字體大小 | `$font-size-base` |
 | \--nutui-sidebar-active-font-size | 激活狀態下的字體大小 | `$font-size-l` |

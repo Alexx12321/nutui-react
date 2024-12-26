@@ -2152,6 +2152,7 @@ $sidebar-background-color: var(
 ) !default;
 $sidebar-border-radius: var(--nutui-sidebar-border-radius, 0) !default;
 $sidebar-width: var(--nutui-sidebar-width, 104px) !default;
+$sidebar-max-width: var(--nutui-sidebar-max-width, 128px) !default;
 $sidebar-title-height: var(--nutui-sidebar-title-height, 52px) !default;
 $sidebar-inactive-font-size: var(
   --nutui-sidebar-inactive-font-size,

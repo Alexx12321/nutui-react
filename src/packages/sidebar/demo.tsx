@@ -5,6 +5,7 @@ import Demo2 from './demos/h5/demo2'
 import Demo3 from './demos/h5/demo3'
 import Demo4 from './demos/h5/demo4'
 import Demo5 from './demos/h5/demo5'
+import Demo6 from './demos/h5/demo6'
 
 const SideNavBarDemo = () => {
   const [translated] = useTranslate({
@@ -14,6 +15,7 @@ const SideNavBarDemo = () => {
       matchByValue: '根据value匹配',
       multiTitle: '多个标题',
       setDuration: '设置滚动动画时长',
+      padding: '内容区域留白边距',
     },
     'en-US': {
       basic: 'Basic Usage',
@@ -21,6 +23,7 @@ const SideNavBarDemo = () => {
       matchByValue: 'Match By Value',
       multiTitle: 'Multiple Titles',
       setDuration: 'Set Scroll Animation Duration',
+      padding: 'Set Content Padding',
     },
   })
 
@@ -37,6 +40,8 @@ const SideNavBarDemo = () => {
         <Demo4 />
         <h2>{translated.setDuration}</h2>
         <Demo5 />
+        <h2>{translated.padding}</h2>
+        <Demo6 />
       </div>
     </>
   )

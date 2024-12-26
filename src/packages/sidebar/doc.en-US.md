@@ -84,6 +84,7 @@ The component provides the following CSS variables, which can be used to customi
 | \--nutui-sidebar-background-color | Sidebar navigation background color | `$color-background` |
 | \--nutui-sidebar-border-radius | Rounded corners of the sidebar | `0` |
 | \--nutui-sidebar-width | Sidebar width | `104px` |
+| \--nutui-sidebar-max-width | Sidebar max width | `128px` |
 | \--nutui-sidebar-title-height | Sidebar title height | `52px` |
 | \--nutui-sidebar-inactive-font-size | Font size in normal state | `$font-size-base` |
 | \--nutui-sidebar-active-font-size | Font size in active state | `$font-size-l` |

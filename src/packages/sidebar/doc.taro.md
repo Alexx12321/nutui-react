@@ -84,6 +84,7 @@ import { SideBar } from '@nutui/nutui-react-taro'
 | \--nutui-sidebar-background-color | 侧边栏导航背景色 | `$color-background` |
 | \--nutui-sidebar-border-radius | 侧边栏的圆角 | `0` |
 | \--nutui-sidebar-width | 侧边栏宽度 | `104px` |
+| \--nutui-sidebar-max-width | 侧边栏最大宽度 | `128` |
 | \--nutui-sidebar-title-height | 侧边栏标题高度 | `52px` |
 | \--nutui-sidebar-inactive-font-size | 普通状态下的字体大小 | `$font-size-base` |
 | \--nutui-sidebar-active-font-size | 激活状态下的字体大小 | `$font-size-l` |

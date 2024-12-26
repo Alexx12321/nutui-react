@@ -8,6 +8,7 @@ import Demo2 from './demos/taro/demo2'
 import Demo3 from './demos/taro/demo3'
 import Demo4 from './demos/taro/demo4'
 import Demo5 from './demos/taro/demo5'
+import Demo6 from './demos/taro/demo6'
 
 const TabsDemo = () => {
   const [translated] = useTranslate({
@@ -17,6 +18,7 @@ const TabsDemo = () => {
       matchByValue: '根据value匹配',
       multiTitle: '多个标题',
       setDuration: '设置滚动动画时长',
+      padding: '内容区域留白边距',
     },
     'en-US': {
       basic: 'Basic Usage',
@@ -24,6 +26,7 @@ const TabsDemo = () => {
       matchByValue: 'Match By Value',
       multiTitle: 'Multiple Titles',
       setDuration: 'Set Scroll Animation Duration',
+      padding: 'Set Content Padding',
     },
   })
 
@@ -43,6 +46,8 @@ const TabsDemo = () => {
         <Demo4 />
         <View className="h2">{translated.setDuration}</View>
         <Demo5 />
+        <View className="h2">{translated.padding}</View>
+        <Demo6 />
       </ScrollView>
     </>
   )
