@@ -3,10 +3,9 @@ coverage:
   status:
     project:
       default:
-        # 设置覆盖率下降的阈值为 0.5%
         threshold: 0.5%
-        target: 81%
+        target: 85%
     patch:
       default:
-        target: 81%
+        target: 90%
 
