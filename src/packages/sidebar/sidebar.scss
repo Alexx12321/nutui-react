@@ -43,13 +43,11 @@
       justify-content: center;
       height: $sidebar-title-height;
       margin: 0;
-      flex: none;
       font-size: $sidebar-inactive-font-size;
+      color: $color-text;
       &-text {
-        font-family: PingFangSC-Regular;
         text-align: center;
         white-space: normal;
-        color: $color-text;
         width: $sidebar-width;
       }
       &-active .nut-sidebar-titles-item-text {
