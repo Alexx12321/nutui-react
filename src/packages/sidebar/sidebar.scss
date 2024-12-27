@@ -13,7 +13,6 @@
   }
   &-titles {
     background: $sidebar-background-color;
-    box-sizing: border-box;
     flex-direction: column;
     border-radius: $sidebar-border-radius;
     height: 100%;
@@ -37,12 +36,10 @@
     }
     &-item {
       cursor: pointer;
-      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       height: $sidebar-title-height;
-      margin: 0;
       font-size: $sidebar-inactive-font-size;
       color: $color-text;
       &-text {
