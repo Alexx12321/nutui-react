@@ -48,10 +48,9 @@
       &-text {
         font-family: PingFangSC-Regular;
         text-align: center;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
+        white-space: normal;
         color: $color-text;
+        width: $sidebar-width;
       }
       &-active .nut-sidebar-titles-item-text {
         font-family: PingFangSC-Semibold;
