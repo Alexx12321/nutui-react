@@ -517,6 +517,7 @@
           "desc": "多选按钮组",
           "sort": 11,
           "show": false,
+          "v15": true,
           "exportEmpty": true,
           "author": "oasis"
         },
@@ -575,6 +576,7 @@
           "sort": 3,
           "show": true,
           "taro": true,
+          "v15": true,
           "author": "swag~jun"
         }
       ]
@@ -649,6 +651,7 @@
           "sort": 10,
           "exportEmpty": true,
           "show": false,
+          "v15": true,
           "author": "oasis"
         },
         {
@@ -840,6 +843,7 @@
           "sort": 15,
           "show": true,
           "taro": true,
+          "v15":true,
           "author": "mike8625"
         },
         {
@@ -866,7 +870,7 @@
           "author": "vickyYE"
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Popover",
           "type": "component",
           "cName": "气泡弹出框",
@@ -874,6 +878,7 @@
           "sort": 19,
           "show": true,
           "taro": true,
+          "v15": true,
           "author": "lzz"
         },
         {
@@ -1074,6 +1079,18 @@
           "taro": true,
           "v15": true,
           "author": "liukun"
+        },
+        {
+          "version": "3.0.0",
+          "name": "Lottie",
+          "type": "component",
+          "cName": "动画/动效",
+          "desc": "给子元素添加动画效果",
+          "sort": 27,
+          "show": true,
+          "taro": true,
+          "v15": true,
+          "author": "swag~jun"
         },
         {
           "version": "3.0.0",
