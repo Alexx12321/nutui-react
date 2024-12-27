@@ -1,6 +1,6 @@
 # SideNavBar组件
 
-> **⚠️ Note:** This component is deprecated and will be removed in the future. Please use [SideBar](#/en-UScomponent/sidebar) instead.
+> **⚠️ Note:** This component is deprecated and will be removed in the future. Please use [SideBar](#/en-US/component/sidebar) instead.
 
 For content selection and switching
 
