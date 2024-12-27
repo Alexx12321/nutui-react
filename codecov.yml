@@ -1,0 +1,12 @@
+# codecov.yml
+coverage:
+  status:
+    project:
+      default:
+        # 设置覆盖率下降的阈值为 1%
+        threshold: 1%
+        target: 80%
+    patch:
+      default:
+        target: 80%
+
