@@ -51,7 +51,7 @@ test('disabled option', async () => {
 })
 test('matchByValue', async () => {
   const list1 = [
-    { value: 'a', title: 'Opt a' },
+    { value: 'a', title: 'Opt a Opt a Opt a Opt a' },
     { value: 'b', title: 'Opt b' },
     { value: 'c', title: 'Opt c' },
   ]
