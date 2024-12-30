@@ -222,7 +222,7 @@ $button-large-font-size: var(
 ) !default;
 $button-large-border-radius: var(
   --nutui-button-large-border-radius,
-  $radius-s
+  $radius-base
 ) !default;
 
 $button-small-font-size: var(
@@ -233,7 +233,7 @@ $button-small-padding: var(--nutui-button-small-padding, 0px 8px) !default;
 $button-small-height: var(--nutui-button-small-height, 28px) !default;
 $button-small-border-radius: var(
   --nutui-button-small-border-radius,
-  $radius-xs
+  $radius-s
 ) !default;
 
 $button-mini-padding: var(--nutui-button-mini-padding, 0px 8px) !default;
