@@ -79,6 +79,7 @@
           "sort": 1,
           "show": true,
           "taro": true,
+          "v15": true,
           "author": "",
           "dd": true
         },
@@ -91,6 +92,7 @@
           "sort": 2,
           "show": true,
           "taro": true,
+          "v15": true,
           "author": "songsong",
           "dd": true
         },
@@ -104,6 +106,7 @@
           "show": false,
           "taro": true,
           "exportEmpty": true,
+          "v15": true,
           "author": "songsong",
           "dd": true
         },
@@ -117,6 +120,7 @@
           "show": true,
           "exportEmpty": true,
           "taro": true,
+          "v15": true,
           "author": "hanyuxinting",
           "dd": true
         },
@@ -130,6 +134,7 @@
           "show": true,
           "taro": true,
           "exclude": true,
+          "v15": true,
           "author": "oasis-cloud",
           "dd": true
         },
@@ -143,6 +148,7 @@
           "sort": 8,
           "show": true,
           "taro": true,
+          "v15": true,
           "author": "vickyYE",
           "dd": true
         },
@@ -155,6 +161,7 @@
           "sort": 5,
           "show": true,
           "taro": true,
+          "v15": true,
           "author": "junjun",
           "dd": true
         }
@@ -185,6 +192,7 @@
           "sort": 7,
           "show": true,
           "taro": true,
+          "v15": true,
           "author": "vickyYE",
           "dd": true
         },
@@ -211,6 +219,7 @@
           "show": false,
           "taro": true,
           "exportEmpty": true,
+          "v15": true,
           "author": "yangxiaolu",
           "dd": true
         },
@@ -327,6 +336,7 @@
           "sort": 5,
           "show": true,
           "taro": true,
+          "v15": true,
           "author": "Ymm0008",
           "dd": true
         },
@@ -340,6 +350,7 @@
           "sort": 5,
           "show": false,
           "taro": true,
+          "v15": true,
           "author": "Ymm0008",
           "dd": true
         },
@@ -425,6 +436,7 @@
           "sort": 2,
           "show": true,
           "taro": true,
+          "v15": true,
           "author": "dsj",
           "dd": true
         },
@@ -436,6 +448,7 @@
           "type": "component",
           "show": false,
           "taro": true,
+          "v15": true,
           "exportEmpty": true,
           "desc": "标签栏子组件",
           "author": "dsj",
@@ -448,6 +461,7 @@
           "cName": "选项卡切换子组件",
           "type": "component",
           "show": false,
+          "v15": true,
           "exportEmpty": true,
           "desc": "选项卡切换子组件",
           "author": "张晶发",
@@ -462,6 +476,7 @@
           "sort": 12,
           "show": true,
           "taro": true,
+          "v15": true,
           "author": "oasis",
           "dd": true
         }
@@ -846,7 +861,7 @@
           "dd": true
         },
         {
-          "version": "2.0.0",
+          "version": "3.0.0",
           "name": "Drag",
           "type": "component",
           "cName": "拖拽",
@@ -854,6 +869,7 @@
           "sort": 1,
           "show": true,
           "taro": true,
+          "v15": true,
           "author": "songsong",
           "dd": false
         },
@@ -971,6 +987,7 @@
           "sort": 10,
           "show": true,
           "taro": true,
+          "v15": true,
           "author": "oasis",
           "dd": true
         },

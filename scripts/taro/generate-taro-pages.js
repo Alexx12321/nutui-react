@@ -7,7 +7,7 @@ const config = require('../../src/config.json')
 const adaptedArray = []
 config.nav.map((item) => {
   item.packages.forEach((element) => {
-    const { name, version, dd } = element
+    const { dd } = element
     if (!dd) return // 未适配不导出
     adaptedArray.push(element.name.toLowerCase())
   })
