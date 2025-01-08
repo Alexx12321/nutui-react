@@ -3,22 +3,25 @@ import hljs from 'highlight.js'
 import APPContext from '../../context'
 import DemoBlock from './demoblock'
 import './demoblock.scss'
-
+import replacePlaceholders from './replace'
+import { useLocation } from 'react-router-dom';
 const modules = import.meta.glob('@/packages/**/demos/*/*.tsx', {
   query: '?raw',
   import: 'default',
   eager: true,
 })
-// console.log('modules', modules)
+
 const CodeBlock: FunctionComponent = (props: { src?: string }) => {
   const ctx = useContext(APPContext)
-
-  const originCode = modules[`${ctx.path}/demos/${props.src}`]
-
+  const fullPath = `${ctx.path}/demos/${props.src}`
+  const filename = fullPath.substring(fullPath.lastIndexOf('/') + 1)
+  const location = useLocation();
+  const lang = location.pathname.includes('zh-CN') ? 'zh-CN' : 'en-US';
+  const originCode = replacePlaceholders(modules[fullPath], filename, lang)
   const highlightedCode = hljs.highlightAuto(originCode, ['jsx']).value
 
   return (
-    <DemoBlock text={originCode} scss="">
+    <DemoBlock text={highlightedCode} scss="">
       <pre>
         <code dangerouslySetInnerHTML={{ __html: highlightedCode }} />
       </pre>
