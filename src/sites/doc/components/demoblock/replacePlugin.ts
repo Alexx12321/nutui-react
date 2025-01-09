@@ -21,25 +21,25 @@ export default function replacePlugin(babel) {
         }
       },
       // 替换 js中 的t对象
-      // MemberExpression(path, state) {
-      //   const { map } = state.opts;
-      //   const { object, property, computed } = path.node;
+      MemberExpression(path, state) {
+        const { map } = state.opts;
+        const { object, property, computed } = path.node;
 
-      //   if (t.isIdentifier(object, { name: 't' })) {
-      //     let key = null;
+        if (t.isIdentifier(object, { name: 't' })) {
+          let key = null;
 
-      //     if (t.isIdentifier(property) && !computed) {
-      //       key = property.name;
-      //     } else if (t.isStringLiteral(property) && computed) {
-      //       key = property.value;
-      //     }
+          if (t.isIdentifier(property) && !computed) {
+            key = property.name;
+          } else if (t.isStringLiteral(property) && computed) {
+            key = property.value;
+          }
 
-      //     if (key !== null) {
-      //       const replacementValue = map.hasOwnProperty(key) ? map[key] : key;
-      //       path.replaceWith(t.valueToNode(replacementValue));
-      //     }
-      //   }
-      // },
+          if (key !== null) {
+            const replacementValue = map.hasOwnProperty(key) ? map[key] : key;
+            path.replaceWith(t.valueToNode(replacementValue));
+          }
+        }
+      },
       JSXAttribute(path, state) {
         const { opts } = state;
         const map = opts.map || {};
