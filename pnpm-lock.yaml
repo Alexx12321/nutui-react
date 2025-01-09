@@ -17,21 +17,6 @@ importers:
 
   .:
     dependencies:
-      '@babel/core':
-        specifier: ^7.26.0
-        version: 7.26.0
-      '@babel/plugin-transform-unicode-escapes':
-        specifier: ^7.25.9
-        version: 7.25.9(@babel/core@7.26.0)
-      '@babel/runtime':
-        specifier: ^7.23.9
-        version: 7.25.4
-      '@babel/standalone':
-        specifier: ^7.26.4
-        version: 7.26.4
-      '@babel/types':
-        specifier: ^7.26.3
-        version: 7.26.3
       '@nutui/icons-react':
         specifier: ^3.0.0-beta.2
         version: 3.0.0-beta.2
@@ -75,9 +60,21 @@ importers:
         specifier: ^4.4.5
         version: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
+      '@babel/core':
+        specifier: ^7.26.0
+        version: 7.26.0
       '@babel/plugin-proposal-class-properties':
         specifier: ^7.18.6
         version: 7.18.6(@babel/core@7.26.0)
+      '@babel/runtime':
+        specifier: ^7.23.9
+        version: 7.25.4
+      '@babel/standalone':
+        specifier: ^7.26.4
+        version: 7.26.4
+      '@babel/types':
+        specifier: ^7.26.3
+        version: 7.26.3
       '@commitlint/cli':
         specifier: ^19.0.3
         version: 19.4.0(@types/node@20.16.1)(typescript@5.5.4)
