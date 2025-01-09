@@ -22,7 +22,7 @@ const CodeBlock: FunctionComponent = (props: { src?: string }) => {
   const highlightedCode = hljs.highlightAuto(originCode, ['jsx']).value
 
   return (
-    <DemoBlock text={highlightedCode} scss="">
+    <DemoBlock text={originCode} scss="">
       <pre>
         <code dangerouslySetInnerHTML={{ __html: highlightedCode }} />
       </pre>
