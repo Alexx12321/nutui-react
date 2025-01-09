@@ -5,11 +5,12 @@ import DemoBlock from './demoblock'
 import './demoblock.scss'
 import replacePlaceholders from './replace'
 import { useLocation } from 'react-router-dom';
-const modules = import.meta.glob('@/packages/**/demos/*/*.tsx', {
+const modules = import.meta.glob(`@/packages/**/demos/h5/*.tsx`, {
   query: '?raw',
   import: 'default',
   eager: true,
 })
+
 
 const CodeBlock: FunctionComponent = (props: { src?: string }) => {
   const ctx = useContext(APPContext)
