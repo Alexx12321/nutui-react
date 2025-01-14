@@ -12,10 +12,8 @@ function replace(options: ReplaceOptions) {
   return ({ types: t }) => ({
     visitor: {
       ImportDeclaration(path) {
-        if (
-          sourceLibraries.indexOf(path.node.source.value) > -1 &&
-          !skip.has(path.node)
-        ) {
+        if (sourceLibraries.indexOf(path.node.source.value) > -1) {
+          if (!skip.has(path.node)) return
           try {
             const updatedImports: Array<any> = []
             path.node.specifiers.forEach((specifier) => {
@@ -52,6 +50,17 @@ function replace(options: ReplaceOptions) {
           } catch (e) {
             console.log(e)
           }
+        } else {
+          sourceLibraries.forEach((library) => {
+            const libraryPattern = new RegExp(`^${library}(?:/|$)`)
+            if (libraryPattern.test(path.node.source.value)) {
+              // import '@nutui/icons-react-taro/dist/style_iconfont.css'
+              path.node.source.value = path.node.source.value.replace(
+                library,
+                targetLibrary
+              )
+            }
+          })
         }
       },
     },
