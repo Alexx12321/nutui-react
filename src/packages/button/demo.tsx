@@ -1,7 +1,6 @@
 import React from 'react'
 import { useTranslate } from '@/sites/assets/locale'
 import Cell from '../cell'
-import Demo1 from './demos/h5/demo1'
 import Demo2 from './demos/h5/demo2'
 import Demo3 from './demos/h5/demo3'
 import Demo4 from './demos/h5/demo4'
@@ -10,6 +9,7 @@ import Demo6 from './demos/h5/demo6'
 import Demo7 from './demos/h5/demo7'
 import Demo8 from './demos/h5/demo8'
 import Demo9 from './demos/h5/demo9'
+import LiveErrorPreview from '../../sites/doc/components/demoblock/LiveErrorPreview'
 
 const ButtonDemo = () => {
   const [translated] = useTranslate({
@@ -55,7 +55,7 @@ const ButtonDemo = () => {
       <div className="demo">
         <h2>{translated.ce5c5446}</h2>
         <Cell style={{ flexWrap: 'wrap' }}>
-          <Demo1 />
+          <LiveErrorPreview />
         </Cell>
         <h2>{translated.e51e4582}</h2>
         <Cell style={{ flexWrap: 'wrap' }}>

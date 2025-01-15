@@ -111,10 +111,10 @@
     "@use-gesture/react": "10.2.20",
     "async-validator": "^4.2.5",
     "classnames": "^2.5.1",
-    "react-fast-compare": "^3.2.2",
     "lodash.kebabcase": "^4.1.1",
     "lottie-miniprogram": "^1.0.12",
     "lottie-react": "^2.4.0",
+    "react-fast-compare": "^3.2.2",
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
@@ -200,6 +200,7 @@
     "react": "^18.2.0",
     "react-color": "^2.19.3",
     "react-dom": "^18.2.0",
+    "react-live": "^4.1.8",
     "react-markdown": "^9.0.1",
     "react-refresh": "^0.14.0",
     "react-router-dom": "^6.22.1",

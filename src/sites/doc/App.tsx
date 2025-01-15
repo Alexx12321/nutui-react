@@ -11,7 +11,7 @@ import { getComponentName } from '@/sites/assets/util'
 import routers from './router'
 import loadable from '@loadable/component'
 import CodeBlock from './components/demoblock/codeblock'
-
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 const Title = () => {
   let location = useLocation()
   const s = window.location.hash.split('/')
@@ -29,6 +29,7 @@ const Title = () => {
 const components = {
   CodeBlock,
 }
+
 const App = () => {
   const [fixed, setFixed] = useState(false)
   const [hidden, setHidden] = useState(false)

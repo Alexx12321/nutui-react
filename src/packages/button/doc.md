@@ -4,7 +4,7 @@
 
 ## 引入
 
-```tsx
+```tsx live=true
 import { Button } from '@nutui/nutui-react'
 ```
 
@@ -16,7 +16,8 @@ import { Button } from '@nutui/nutui-react'
 
 :::demo
 
-<CodeBlock src='h5/demo1.tsx'></CodeBlock>
+<CodeBlock src='h5/demo1.tsx' live>
+</CodeBlock>
 
 :::
 
