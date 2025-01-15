@@ -11,10 +11,12 @@
     border-right: 1px solid #eee;
     overflow: auto;
     padding-left: 35px;
+    padding-top: 35px;
 
     &.fixed {
       position: fixed;
       top: 0;
+      padding-top: 15px;
     }
 
     ol {
@@ -35,10 +37,13 @@
         line-height: 48px;
         font-size: 14px;
         color: $doc-default-nav-color;
-        font-weight: bold;
         position: relative;
+        font-weight: bold;
 
         &.active {
+          font-weight: bold;
+          color: $doc-default-color;
+
           &::before {
             position: absolute;
             content: '';
@@ -48,8 +53,7 @@
             margin-top: -5px;
             height: 10px;
             transform: rotate(90deg);
-            background: url(https://img10.360buyimg.com/imagetools/jfs/t1/136135/19/14659/946/5fa20aa8E33a9aa26/d329fbe669171208.png)
-              no-repeat;
+            background: url('https://img10.360buyimg.com/imagetools/jfs/t1/136135/19/14659/946/5fa20aa8E33a9aa26/d329fbe669171208.png');
             background-size: 100% 100%;
           }
         }
@@ -59,15 +63,19 @@
         li {
           padding-left: 29px;
           cursor: pointer;
+          height: 100%;
+          font-weight: bold;
 
           &:hover {
-            a {
+            &:visited {
               color: $doc-default-color;
             }
           }
 
           a {
-            height: 100%;
+            &:hover {
+              color: $doc-default-color !important;
+            }
 
             &.router-link-active,
             &.active {
@@ -76,15 +84,7 @@
 
             &:link,
             &:visited {
-              color: $color-title;
-            }
-
-            &:hover {
-              color: $doc-default-color;
-
-              &:visited {
-                color: $doc-default-color;
-              }
+              color: #1a1a1a;
             }
 
             b {
@@ -92,15 +92,13 @@
               font-size: 12px;
             }
           }
+
+          div {
+            &:hover {
+              color: $doc-default-color !important;
+            }
+          }
         }
-      }
-    }
-
-    .selected {
-      color: #ff0f23 !important;
-
-      li {
-        color: #ff0f23 !important;
       }
     }
   }

@@ -32,34 +32,38 @@ const Nav = () => {
                 {cn.packages.map((cp: any) => {
                   if (!cp.show) return null
                   return (
-                    <NavLink
-                      key={Math.random()}
-                      className={({ isActive, isPending }) =>
-                        isPending ? '' : isActive ? 'selected' : ''
-                      }
-                      to={`${lang ? `/${lang}` : ''}/component/${cp.name}`}
-                    >
-                      <li>
-                        {cp.name}&nbsp;&nbsp;
-                        <b>{lang === 'zh-CN' && cp.cName}</b>
-                        {cp.version !== '2.0.0' ? (
-                          <b
-                            style={{
-                              background: 'rgb(250, 205, 205)',
-                              padding: '0px 5px',
-                              borderRadius: '5px',
-                              color: 'rgb(255, 255, 255)',
-                              transform: 'scale(0.8)',
-                              height: '20px',
-                              lineHeight: '20px',
-                              display: 'inline-block',
-                            }}
-                          >
-                            🛠
+                    <li>
+                      <NavLink
+                        key={Math.random()}
+                        className={({ isActive, isPending }) =>
+                          isPending ? '' : isActive ? 'active' : ''
+                        }
+                        to={`${lang ? `/${lang}` : ''}/component/${cp.name}`}
+                      >
+                        <>
+                          {cp.name}&nbsp;&nbsp;
+                          <b style={{ fontSize: 12 }}>
+                            {lang === 'zh-CN' && cp.cName}
                           </b>
-                        ) : null}
-                      </li>
-                    </NavLink>
+                          {cp.version !== '2.0.0' ? (
+                            <b
+                              style={{
+                                background: 'rgb(250, 205, 205)',
+                                padding: '0px 5px',
+                                borderRadius: '5px',
+                                color: 'rgb(255, 255, 255)',
+                                transform: 'scale(0.8)',
+                                height: '20px',
+                                lineHeight: '20px',
+                                display: 'inline-block',
+                              }}
+                            >
+                              🛠
+                            </b>
+                          ) : null}
+                        </>
+                      </NavLink>
+                    </li>
                   )
                 })}
               </ul>
