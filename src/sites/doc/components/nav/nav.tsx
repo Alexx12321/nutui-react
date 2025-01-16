@@ -36,13 +36,13 @@ const Nav = () => {
                       <NavLink
                         key={Math.random()}
                         className={({ isActive, isPending }) =>
-                          isPending ? '' : isActive ? 'active' : ''
+                          isPending ? 'active' : isActive ? 'active' : ''
                         }
                         to={`${lang ? `/${lang}` : ''}/component/${cp.name}`}
                       >
                         <>
                           {cp.name}&nbsp;&nbsp;
-                          <b style={{ fontSize: 12 }}>
+                          <b>
                             {lang === 'zh-CN' && cp.cName}
                           </b>
                           {cp.version !== '2.0.0' ? (
