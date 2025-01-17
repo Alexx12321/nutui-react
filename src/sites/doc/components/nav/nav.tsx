@@ -32,14 +32,14 @@ const Nav = () => {
                 {cn.packages.map((cp: any) => {
                   if (!cp.show) return null
                   return (
-                    <NavLink
-                      key={Math.random()}
-                      className={({ isActive, isPending }) =>
-                        isPending ? '' : isActive ? 'selected' : ''
-                      }
-                      to={`${lang ? `/${lang}` : ''}/component/${cp.name}`}
-                    >
-                      <li>
+                    <li>
+                      <NavLink
+                        key={Math.random()}
+                        className={({ isActive, isPending }) =>
+                          isPending ? '' : isActive ? 'active' : ''
+                        }
+                        to={`${lang ? `/${lang}` : ''}/component/${cp.name}`}
+                      >
                         {cp.name}&nbsp;&nbsp;
                         <b>{lang === 'zh-CN' && cp.cName}</b>
                         {cp.version !== '2.0.0' ? (
@@ -58,8 +58,8 @@ const Nav = () => {
                             🛠
                           </b>
                         ) : null}
-                      </li>
-                    </NavLink>
+                      </NavLink>
+                    </li>
                   )
                 })}
               </ul>

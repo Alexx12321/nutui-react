@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import { nav } from '@/config.json'
 // @ts-ignore
 import { version } from '/package.json'
-import config from '@/sites/config/env'
+import config from '../../../config/env'
 import './header.scss'
 import { useNavigate, useLocation } from 'react-router-dom'
-
+import {
+  SiteVueTaro,
+  SiteReactTaro,
+  header,
+  versions,
+  nav,
+  repository,
+  language,
+  guide as vueGuide,
+  reactGuide,
+  reactTaroGuide,
+  moreGuide,
+  businessGuide,
+  products,
+} from '../../../config/index'
 const Header = () => {
   const navigate = useNavigate()
   const location = useLocation()
-  const [currLang, setCurrLang] = useState({})
+  const [currLang, setCurrLang] = useState<any>({})
 
   const toHome = () => {
     navigate('/')
@@ -27,15 +40,15 @@ const Header = () => {
       (l) => location.pathname.indexOf(l.locale) > -1
     )[0]
     setCurrLang(lang)
+    console.log(lang)
   }, [location])
 
   const langs = [
     { name: '中文', locale: 'zh-CN' },
-    { name: '中文(繁体)', locale: 'zh-TW' },
     { name: 'English', locale: 'en-US' },
-    { name: 'Thai', locale: 'th' },
   ]
-
+  const isZh = currLang.locale == 'zh-CN'
+  const toLink = (item: any) => {}
   const [visible, setVisible] = useState(false)
   const handleSwitchLocale = (e: any) => {
     const classList: string[] = [].slice.call(e.target.classList)
@@ -54,19 +67,188 @@ const Header = () => {
     }
     window.location.href = link
   }
+  const isReactTaro = location.pathname.includes('taro/react')
+  const headerBck = SiteReactTaro.header
+  const [isShowGuid, setIsShowGuid] = useState(false)
+  const [selectedVersion, setSelectedVersion] = useState('3x')
+  const [selectedLanguage, setSelectedLanguage] = useState('')
+  const handleMouseHover = (isHovered) => {
+    setIsShowGuid(isHovered)
+  }
 
+  const handleClick = () => {
+    setIsShowGuid(!isShowGuid)
+  }
+
+  const handleVersionSelect = (version) => {
+    setSelectedVersion(version)
+  }
+
+  const handleLanguageSelect = (language) => {
+    setSelectedLanguage(language)
+  }
+  const onMouseHover4 = (isHovered) => {
+    // setIsShowGuid(isHovered)
+  }
+  console.log(headerBck)
   return (
-    <div className="doc-header doc-header-red">
+    <div className="doc-header doc-header-black">
       <div className="header-logo">
-        <a className="logo-link" href="#/" onClick={toHome}></a>
+        <a className={`logo-link react`} onClick={toHome}></a>
         <span className="logo-border"></span>
-        <span className="version">{version}</span>
+        <span>
+          <span
+            // onClick={toAnother}
+            className={`version link-title react`}
+            style={{ display: 'inline' }}
+          >
+            {isReactTaro ? '小程序' : 'H5'}
+          </span>
+        </span>
       </div>
       <div className="header-nav">
-        <a href="https://github.com/jdf2e/nutui-docs" target="_blank">
-          当前环境：development ,代码 PR 合并后，文档会自动同步至
-          https://github.com/jdf2e/nutui-docs
-        </a>
+        {/* // Search */}
+        <div className="nav-box">
+          <ul className="nav-list">
+            {headerBck.map((item) => (
+              <li className={`nav-item active`} key={item.name}>
+                <a onClick={() => toLink(item)}>
+                  {isZh ? item.cName : item.eName}
+                </a>
+              </li>
+            ))}
+            <li className="nav-item">
+              <div
+                onMouseEnter={() => handleMouseHover(true)}
+                onMouseLeave={() => handleMouseHover(false)}
+                // tabIndex="0"
+                className="header-select-box"
+                // className={isShowGuid ? 'select-up' : 'select-down'}
+                onClick={handleClick}
+              >
+                <div className="header-select-hd">
+                  {selectedVersion}
+                  <i className=""></i>
+                </div>
+                <div className="guild-line"></div>
+                <div
+                  className={`guid-data ${isShowGuid ? 'fade-in' : 'fade-out'}`}
+                >
+                  {reactGuide.map((item, indexKey) => (
+                    <div
+                      className={`info ${indexKey === 1 ? 'contentKey' : ''}`}
+                      key={indexKey}
+                    >
+                      <div className="header">
+                        <img src={item.icon} className="icon" />
+                        <div className="type"> {item.type}</div>
+                      </div>
+                      <div>
+                        {item.data.map((info, index) => (
+                          <div className="content">
+                            <div className="version"> {info.name}</div>
+                            <div className="list">
+                              {info.language.map((lang, index) => (
+                                <div className="lang">
+                                  <div className="name">{lang}</div>
+                                </div>
+                              ))}
+                            </div>
+                            <div className="app"> {info.app}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </li>
+            <li className="nav-item" style={{ marginLeft: '-15px' }}>
+              <div
+                onMouseEnter={() => onMouseHover4(true)}
+                onMouseLeave={() => onMouseHover4(false)}
+                className="header-select-box"
+              >
+                <div className="header-select-hd">
+                  {isZh ? '更多' : 'More'}
+                  <i className=""></i>
+                </div>
+                <div className="guild-line"></div>
+                <div
+                  className={`guid-data ${isShowGuid ? 'fade-in' : 'fade-out'}`}
+                  style={{ width: '-346px' }}
+                >
+                  {moreGuide.map((item, indexKey) => (
+                    <div
+                      className={`info ${indexKey === 1 ? 'contentKey' : ''}`}
+                      key={indexKey}
+                    >
+                      <div className="header">
+                        {item.icon && <img src={item.icon} className="icon" />}
+                        <div className="type">
+                          {' '}
+                          {isZh ? item.type.cName : item.type.eName}
+                        </div>
+                      </div>
+                      {item.datas.map((info, index) => (
+                        <div key={index}>
+                          {info.plat && (
+                            <div className="plat">
+                              {isZh ? info.plat.cName : info.plat.eName}
+                            </div>
+                          )}
+                          {info.data.map((info2, index2) => (
+                            <div
+                              className="content"
+                              key={index2}
+                              onClick={() => handleVersionSelect(info2.name)}
+                            >
+                              <div className="version"> {info2.name}</div>
+                              <div className="list" style={{ width: '120px' }}>
+                                {info2.language.map((lang, index2) => (
+                                  <div className="lang" key={index2}>
+                                    <div
+                                      className="name"
+                                      onClick={() => handleLanguageSelect(lang)}
+                                    >
+                                      {lang}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                              {/* <div className="app"> {info2.app}</div> */}
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </li>
+            {!isReactTaro && (
+              <li className="nav-item" onClick={() => {}}>
+                En/中
+              </li>
+            )}
+            <li className="nav-item">
+              {repository.git && (
+                <a
+                  className="user-link"
+                  target="_blank"
+                  href={repository.git}
+                ></a>
+              )}
+              {repository.gitee && (
+                <a
+                  className="user-link gitee"
+                  target="_blank"
+                  href={repository.gitee}
+                ></a>
+              )}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   )
