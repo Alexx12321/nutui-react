@@ -130,7 +130,7 @@
             bottom: 3px;
             left: 50%;
             margin-left: -17.5px;
-            background: url('@/assets/images/item-active.png');
+            background: url('../../../assets/images/item-active.png');
           }
         }
         &:last-of-type {
@@ -207,10 +207,10 @@
     .header {
       &-logo {
         .logo-link {
-          background: url('@/assets/images/logo-header-white.png') no-repeat
-            center/100%;
+          background: url('../../../assets/images/logo-header-white.png')
+            no-repeat center/100%;
           &.react {
-            background: url('@/assets/images/logo-header-white-react.png')
+            background: url('../../../assets/images/logo-header-white-react.png')
               no-repeat center/100%;
           }
           &.jdb {
@@ -268,12 +268,12 @@
         position: relative;
         &.select-down {
           .header-select-hd {
-            background-image: url('@/assets/images/icon-select-white-down.png');
+            background-image: url('../../../assets/images/icon-select-white-down.png');
           }
         }
         &.select-up {
           .header-select-hd {
-            background-image: url('@/assets/images/icon-select-white-up.png');
+            background-image: url('../../../assets/images/icon-select-white-up.png');
           }
         }
         .guild-line {
@@ -410,8 +410,8 @@
     .header {
       &-logo {
         .logo-link {
-          background: url('@/assets/images/logo-header-red.png') no-repeat
-            center/100%;
+          background: url('../../../assets/images/logo-header-red.png')
+            no-repeat center/100%;
           &.react {
             background: url('https://img14.360buyimg.com/imagetools/jfs/t1/124864/1/33144/4732/63a97786F51517a97/a9ca3c1e043ceeb4.png')
               no-repeat center/100%;
@@ -471,12 +471,12 @@
         position: relative;
         &.select-down {
           .header-select-hd {
-            background-image: url('@/assets/images/icon-select-gray-down.png');
+            background-image: url('../../../assets/images/icon-select-gray-down.png');
           }
         }
         &.select-up {
           .header-select-hd {
-            background-image: url('@/assets/images/icon-select-gray-up.png');
+            background-image: url('../../../assets/images/icon-select-gray-up.png');
           }
         }
         .guild-line {
@@ -613,8 +613,8 @@
     .header {
       &-logo {
         .logo-link {
-          background: url('@/assets/images/logo-header-red.png') no-repeat
-            center/100%;
+          background: url('../../../assets/images/logo-header-red.png')
+            no-repeat center/100%;
           &.react {
             background: url('https://img14.360buyimg.com/imagetools/jfs/t1/124864/1/33144/4732/63a97786F51517a97/a9ca3c1e043ceeb4.png')
               no-repeat center/100%;
@@ -673,12 +673,12 @@
       &-box {
         &.select-down {
           .header-select-hd {
-            background-image: url('@/assets/images/icon-select-white-down.png');
+            background-image: url('../../../assets/images/icon-select-white-down.png');
           }
         }
         &.select-up {
           .header-select-hd {
-            background-image: url('@/assets/images/icon-select-white-up.png');
+            background-image: url('../../../assets/images/icon-select-white-up.png');
           }
         }
         .guild-line {
@@ -818,7 +818,27 @@
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
 
+.fade-content {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+}
 .site-guid-data {
   // display: block !important;
   line-height: normal;

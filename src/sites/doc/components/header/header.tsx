@@ -4,6 +4,7 @@ import { version } from '/package.json'
 import config from '../../../config/env'
 import './header.scss'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { CSSTransition } from 'react-transition-group'
 import {
   SiteVueTaro,
   SiteReactTaro,
@@ -22,7 +23,7 @@ import {
 const Header = () => {
   const navigate = useNavigate()
   const location = useLocation()
-  const [currLang, setCurrLang] = useState<any>({})
+  const [currLang, setCurrLang] = useState<any>({ locale: '' })
 
   const toHome = () => {
     navigate('/')
@@ -47,29 +48,29 @@ const Header = () => {
     { name: '中文', locale: 'zh-CN' },
     { name: 'English', locale: 'en-US' },
   ]
-  const isZh = currLang.locale == 'zh-CN'
+  const isZh = true
   const toLink = (item: any) => {}
   const [visible, setVisible] = useState(false)
   const handleSwitchLocale = (e: any) => {
-    const classList: string[] = [].slice.call(e.target.classList)
-    if (classList.indexOf('curr-lang') > -1) {
-      return setVisible(!visible)
-    }
-    const name = e.target.innerText
-    setVisible(!visible)
-    const [{ locale }] = langs.filter((l) => name == l.name)
-
-    let link = ''
-    if (config.locales.some((l) => window.location.href.indexOf(l) > -1)) {
-      link = window.location.href.replace(/\#\/([a-z-]+)/gi, `#/${locale}`)
-    } else {
-      link = window.location.href.replace(/\#\//gi, `#/${locale}/`)
-    }
-    window.location.href = link
+    // const classList: string[] = [].slice.call(e.target.classList)
+    // if (classList.indexOf('curr-lang') > -1) {
+    //   return setVisible(!visible)
+    // }
+    // const name = e.target.innerText
+    // setVisible(!visible)
+    // const [{ locale }] = langs.filter((l) => name == l.name)
+    // let link = ''
+    // if (config.locales.some((l) => window.location.href.indexOf(l) > -1)) {
+    //   link = window.location.href.replace(/\#\/([a-z-]+)/gi, `#/${locale}`)
+    // } else {
+    //   link = window.location.href.replace(/\#\//gi, `#/${locale}/`)
+    // }
+    // window.location.href = link
   }
   const isReactTaro = location.pathname.includes('taro/react')
   const headerBck = SiteReactTaro.header
   const [isShowGuid, setIsShowGuid] = useState(false)
+  const [isShowGuid4, setIsShowGuid4] = useState(false)
   const [selectedVersion, setSelectedVersion] = useState('3x')
   const [selectedLanguage, setSelectedLanguage] = useState('')
   const handleMouseHover = (isHovered) => {
@@ -88,7 +89,7 @@ const Header = () => {
     setSelectedLanguage(language)
   }
   const onMouseHover4 = (isHovered) => {
-    // setIsShowGuid(isHovered)
+    setIsShowGuid4(isHovered)
   }
   console.log(headerBck)
   return (
@@ -122,8 +123,11 @@ const Header = () => {
                 onMouseEnter={() => handleMouseHover(true)}
                 onMouseLeave={() => handleMouseHover(false)}
                 // tabIndex="0"
-                className="header-select-box"
-                // className={isShowGuid ? 'select-up' : 'select-down'}
+                className={
+                  isShowGuid
+                    ? 'header-select-box select-up'
+                    : 'header-select-box select-down'
+                }
                 onClick={handleClick}
               >
                 <div className="header-select-hd">
@@ -131,51 +135,64 @@ const Header = () => {
                   <i className=""></i>
                 </div>
                 <div className="guild-line"></div>
-                <div
-                  className={`guid-data ${isShowGuid ? 'fade-in' : 'fade-out'}`}
-                >
-                  {reactGuide.map((item, indexKey) => (
+
+                  <CSSTransition
+                  in={isShowGuid} timeout={300} classNames="fade" unmountOnExit>
                     <div
-                      className={`info ${indexKey === 1 ? 'contentKey' : ''}`}
-                      key={indexKey}
+                      className={`guid-data ${isShowGuid ? 'fade-in' : 'fade-out'}`}
                     >
-                      <div className="header">
-                        <img src={item.icon} className="icon" />
-                        <div className="type"> {item.type}</div>
-                      </div>
-                      <div>
-                        {item.data.map((info, index) => (
-                          <div className="content">
-                            <div className="version"> {info.name}</div>
-                            <div className="list">
-                              {info.language.map((lang, index) => (
-                                <div className="lang">
-                                  <div className="name">{lang}</div>
-                                </div>
-                              ))}
-                            </div>
-                            <div className="app"> {info.app}</div>
+                      {reactGuide.map((item, indexKey) => (
+                        <div
+                          className={`info ${indexKey === 1 ? 'contentKey' : ''}`}
+                          key={indexKey}
+                        >
+                          <div className="header">
+                            <img src={item.icon} className="icon" />
+                            <div className="type"> {item.type}</div>
                           </div>
-                        ))}
-                      </div>
+                          <div>
+                            {item.data.map((info, index) => (
+                              <div className="content">
+                                <div className="version"> {info.name}</div>
+                                <div className="list">
+                                  {info.language.map((lang, index) => (
+                                    <div className="lang">
+                                      <div className="name">{lang}</div>
+                                    </div>
+                                  ))}
+                                </div>
+                                <div className="app"> {info.app}</div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </CSSTransition>
               </div>
             </li>
             <li className="nav-item" style={{ marginLeft: '-15px' }}>
               <div
                 onMouseEnter={() => onMouseHover4(true)}
                 onMouseLeave={() => onMouseHover4(false)}
-                className="header-select-box"
+                // className="header-select-box"
+                className={
+                  isShowGuid4
+                    ? 'header-select-box select-up'
+                    : 'header-select-box select-down'
+                }
+                onClick={() => {
+                  setIsShowGuid4(!isShowGuid4)
+                }}
               >
                 <div className="header-select-hd">
                   {isZh ? '更多' : 'More'}
                   <i className=""></i>
                 </div>
                 <div className="guild-line"></div>
-                <div
-                  className={`guid-data ${isShowGuid ? 'fade-in' : 'fade-out'}`}
+                <CSSTransition
+                  in={isShowGuid4} timeout={300} classNames="fade" unmountOnExit><div
+                  className={`guid-data ${isShowGuid4 ? 'fade-in' : 'fade-out'}`}
                   style={{ width: '-346px' }}
                 >
                   {moreGuide.map((item, indexKey) => (
@@ -184,7 +201,9 @@ const Header = () => {
                       key={indexKey}
                     >
                       <div className="header">
-                        {item.icon && <img src={item.icon} className="icon" />}
+                        {item.icon && (
+                          <img src={item.icon} className="icon" />
+                        )}
                         <div className="type">
                           {' '}
                           {isZh ? item.type.cName : item.type.eName}
@@ -204,12 +223,17 @@ const Header = () => {
                               onClick={() => handleVersionSelect(info2.name)}
                             >
                               <div className="version"> {info2.name}</div>
-                              <div className="list" style={{ width: '120px' }}>
+                              <div
+                                className="list"
+                                style={{ width: '120px' }}
+                              >
                                 {info2.language.map((lang, index2) => (
                                   <div className="lang" key={index2}>
                                     <div
                                       className="name"
-                                      onClick={() => handleLanguageSelect(lang)}
+                                      onClick={() =>
+                                        handleLanguageSelect(lang)
+                                      }
                                     >
                                       {lang}
                                     </div>
@@ -223,7 +247,7 @@ const Header = () => {
                       ))}
                     </div>
                   ))}
-                </div>
+                </div></CSSTransition>
               </div>
             </li>
             {!isReactTaro && (
