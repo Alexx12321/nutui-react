@@ -5,6 +5,7 @@ import config from '../../../config/env'
 import './header.scss'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group'
+import Search from '../search/search'
 import {
   SiteVueTaro,
   SiteReactTaro,
@@ -51,6 +52,7 @@ const Header = () => {
   const isZh = true
   const toLink = (item: any) => {}
   const [visible, setVisible] = useState(false)
+  const [activeLink, setActiveLink] = useState('指南')
   const handleSwitchLocale = (e: any) => {
     // const classList: string[] = [].slice.call(e.target.classList)
     // if (classList.indexOf('curr-lang') > -1) {
@@ -71,7 +73,7 @@ const Header = () => {
   const headerBck = SiteReactTaro.header
   const [isShowGuid, setIsShowGuid] = useState(false)
   const [isShowGuid4, setIsShowGuid4] = useState(false)
-  const [selectedVersion, setSelectedVersion] = useState('3x')
+  const [selectedVersion, setSelectedVersion] = useState('3.0.0-beta.11')
   const [selectedLanguage, setSelectedLanguage] = useState('')
   const handleMouseHover = (isHovered) => {
     setIsShowGuid(isHovered)
@@ -107,12 +109,20 @@ const Header = () => {
           </span>
         </span>
       </div>
+
       <div className="header-nav">
-        {/* // Search */}
+        <Search />
+
         <div className="nav-box">
           <ul className="nav-list">
             {headerBck.map((item) => (
-              <li className={`nav-item active`} key={item.name}>
+              <li
+                className={`nav-item ${item.cName === activeLink ? 'active' : ''}`}
+                key={item.name}
+                onClick={() => {
+                  setActiveLink(item.cName)
+                }}
+              >
                 <a onClick={() => toLink(item)}>
                   {isZh ? item.cName : item.eName}
                 </a>
@@ -136,39 +146,43 @@ const Header = () => {
                 </div>
                 <div className="guild-line"></div>
 
-                  <CSSTransition
-                  in={isShowGuid} timeout={300} classNames="fade" unmountOnExit>
-                    <div
-                      className={`guid-data ${isShowGuid ? 'fade-in' : 'fade-out'}`}
-                    >
-                      {reactGuide.map((item, indexKey) => (
-                        <div
-                          className={`info ${indexKey === 1 ? 'contentKey' : ''}`}
-                          key={indexKey}
-                        >
-                          <div className="header">
-                            <img src={item.icon} className="icon" />
-                            <div className="type"> {item.type}</div>
-                          </div>
-                          <div>
-                            {item.data.map((info, index) => (
-                              <div className="content">
-                                <div className="version"> {info.name}</div>
-                                <div className="list">
-                                  {info.language.map((lang, index) => (
-                                    <div className="lang">
-                                      <div className="name">{lang}</div>
-                                    </div>
-                                  ))}
-                                </div>
-                                <div className="app"> {info.app}</div>
-                              </div>
-                            ))}
-                          </div>
+                <CSSTransition
+                  in={isShowGuid}
+                  timeout={300}
+                  classNames="fade"
+                  unmountOnExit
+                >
+                  <div
+                    className={`guid-data ${isShowGuid ? 'fade-in' : 'fade-out'}`}
+                  >
+                    {reactGuide.map((item, indexKey) => (
+                      <div
+                        className={`info ${indexKey === 1 ? 'contentKey' : ''}`}
+                        key={indexKey}
+                      >
+                        <div className="header">
+                          <img src={item.icon} className="icon" />
+                          <div className="type"> {item.type}</div>
                         </div>
-                      ))}
-                    </div>
-                  </CSSTransition>
+                        <div>
+                          {item.data.map((info, index) => (
+                            <div className="content">
+                              <div className="version"> {info.name}</div>
+                              <div className="list">
+                                {info.language.map((lang, index) => (
+                                  <div className="lang">
+                                    <div className="name">{lang}</div>
+                                  </div>
+                                ))}
+                              </div>
+                              <div className="app"> {info.app}</div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CSSTransition>
               </div>
             </li>
             <li className="nav-item" style={{ marginLeft: '-15px' }}>
@@ -191,63 +205,69 @@ const Header = () => {
                 </div>
                 <div className="guild-line"></div>
                 <CSSTransition
-                  in={isShowGuid4} timeout={300} classNames="fade" unmountOnExit><div
-                  className={`guid-data ${isShowGuid4 ? 'fade-in' : 'fade-out'}`}
-                  style={{ width: '-346px' }}
+                  in={isShowGuid4}
+                  timeout={300}
+                  classNames="fade"
+                  unmountOnExit
                 >
-                  {moreGuide.map((item, indexKey) => (
-                    <div
-                      className={`info ${indexKey === 1 ? 'contentKey' : ''}`}
-                      key={indexKey}
-                    >
-                      <div className="header">
-                        {item.icon && (
-                          <img src={item.icon} className="icon" />
-                        )}
-                        <div className="type">
-                          {' '}
-                          {isZh ? item.type.cName : item.type.eName}
-                        </div>
-                      </div>
-                      {item.datas.map((info, index) => (
-                        <div key={index}>
-                          {info.plat && (
-                            <div className="plat">
-                              {isZh ? info.plat.cName : info.plat.eName}
-                            </div>
+                  <div
+                    className={`guid-data ${isShowGuid4 ? 'fade-in' : 'fade-out'}`}
+                    style={{ width: '-346px' }}
+                  >
+                    {moreGuide.map((item, indexKey) => (
+                      <div
+                        className={`info ${indexKey === 1 ? 'contentKey' : ''}`}
+                        key={indexKey}
+                      >
+                        <div className="header">
+                          {item.icon && (
+                            <img src={item.icon} className="icon" />
                           )}
-                          {info.data.map((info2, index2) => (
-                            <div
-                              className="content"
-                              key={index2}
-                              onClick={() => handleVersionSelect(info2.name)}
-                            >
-                              <div className="version"> {info2.name}</div>
-                              <div
-                                className="list"
-                                style={{ width: '120px' }}
-                              >
-                                {info2.language.map((lang, index2) => (
-                                  <div className="lang" key={index2}>
-                                    <div
-                                      className="name"
-                                      onClick={() =>
-                                        handleLanguageSelect(lang)
-                                      }
-                                    >
-                                      {lang}
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
-                              {/* <div className="app"> {info2.app}</div> */}
-                            </div>
-                          ))}
+                          <div className="type">
+                            {' '}
+                            {isZh ? item.type.cName : item.type.eName}
+                          </div>
                         </div>
-                      ))}
-                    </div>
-                  ))}
-                </div></CSSTransition>
+                        {item.datas.map((info, index) => (
+                          <div key={index}>
+                            {info.plat && (
+                              <div className="plat">
+                                {isZh ? info.plat.cName : info.plat.eName}
+                              </div>
+                            )}
+                            {info.data.map((info2, index2) => (
+                              <div
+                                className="content"
+                                key={index2}
+                                onClick={() => handleVersionSelect(info2.name)}
+                              >
+                                <div className="version"> {info2.name}</div>
+                                <div
+                                  className="list"
+                                  style={{ width: '120px' }}
+                                >
+                                  {info2.language.map((lang, index2) => (
+                                    <div className="lang" key={index2}>
+                                      <div
+                                        className="name"
+                                        onClick={() =>
+                                          handleLanguageSelect(lang)
+                                        }
+                                      >
+                                        {lang}
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                                {/* <div className="app"> {info2.app}</div> */}
+                              </div>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </CSSTransition>
               </div>
             </li>
             {!isReactTaro && (
