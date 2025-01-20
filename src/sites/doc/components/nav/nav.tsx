@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { nav } from '@/config.json'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import './nav.scss'
 import useLocale from '@/sites/assets/locale/uselocale'
 
@@ -19,6 +19,8 @@ const Nav = () => {
   useEffect(() => {
     document.addEventListener('scroll', scrollNav)
   }, [])
+  const location = useLocation()
+  const isTaro = location.pathname.includes('-taro')
   return (
     <div className={`doc-nav ${fixed ? 'fixed' : ''}`}>
       <ol>
@@ -38,7 +40,7 @@ const Nav = () => {
                         className={({ isActive, isPending }) =>
                           isPending ? '' : isActive ? 'active' : ''
                         }
-                        to={`${lang ? `/${lang}` : ''}/component/${cp.name}`}
+                        to={`${lang ? `/${lang}` : ''}/component/${cp.name}${isTaro? '-taro' : ''}`}
                       >
                         {cp.name}&nbsp;&nbsp;
                         <b>{lang === 'zh-CN' && cp.cName}</b>

@@ -14,9 +14,11 @@ import CodeBlock from './components/demoblock/codeblock'
 import { BackTop } from '../../packages/backtop/backtop'
 const Title = () => {
   let location = useLocation()
+  const isTaro = location.pathname.includes('-taro')
   const s = window.location.hash.split('/')
   useEffect(() => {
     const componentName = getComponentName()
+    console.log(componentName)
     setComponentName(componentName)
   }, [location])
   const [componentName, setComponentName] = useState({ name: '', cName: '' })
@@ -25,19 +27,35 @@ const Title = () => {
       <div className="title">
         {componentName.name}&nbsp;{s[1] === 'zh-CN' && componentName.cName}
       </div>
-      <div className="npm-package">
-        <a href="https://www.npmjs.com/package/@nutui/nutui-react">
+      {isTaro ? (
+        <div className="npm-package">
+          <a href="https://www.npmjs.com/package/@nutui/nutui-react-taro">
+            <img
+              src="https://img.shields.io/badge/npm-%40nutui%2Fnutui--react--taro-brightgreen"
+              alt="@nutui/nutui-react-taro"
+            />
+          </a>
           <img
-            src="https://img.shields.io/badge/npm-%40nutui%2Fnutui--react-brightgreen"
-            alt="@nutui/nutui-react"
+            src="https://img13.360buyimg.com/imagetools/jfs/t1/169186/5/33010/1762/639703a1E898bcb96/6c372c661c6dddfe.png"
+            width="20"
+            height="20"
           />
-        </a>
-        <img
-          src="https://img12.360buyimg.com/imagetools/jfs/t1/192500/27/37524/4524/649d5065F7e5fbef6/afe567692acba3b0.png"
-          width="20"
-          height="20"
-        />
-      </div>
+        </div>
+      ) : (
+        <div className="npm-package">
+          <a href="https://www.npmjs.com/package/@nutui/nutui-react">
+            <img
+              src="https://img.shields.io/badge/npm-%40nutui%2Fnutui--react-brightgreen"
+              alt="@nutui/nutui-react"
+            />
+          </a>
+          <img
+            src="https://img12.360buyimg.com/imagetools/jfs/t1/192500/27/37524/4524/649d5065F7e5fbef6/afe567692acba3b0.png"
+            width="20"
+            height="20"
+          />
+        </div>
+      )}
     </div>
   )
 }

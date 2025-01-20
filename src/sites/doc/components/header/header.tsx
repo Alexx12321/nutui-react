@@ -42,7 +42,6 @@ const Header = () => {
       (l) => location.pathname.indexOf(l.locale) > -1
     )[0]
     setCurrLang(lang)
-    console.log(lang)
   }, [location])
 
   const langs = [
@@ -69,7 +68,7 @@ const Header = () => {
     // }
     // window.location.href = link
   }
-  const isReactTaro = location.pathname.includes('taro/react')
+  const isReactTaro = location.pathname.includes('-taro')
   const headerBck = SiteReactTaro.header
   const [isShowGuid, setIsShowGuid] = useState(false)
   const [isShowGuid4, setIsShowGuid4] = useState(false)
@@ -78,6 +77,13 @@ const Header = () => {
   const handleMouseHover = (isHovered) => {
     setIsShowGuid(isHovered)
   }
+  const toAnother = () => {
+    if (!location.pathname.includes('taro')) {
+      navigate(location.pathname + '-taro');
+    } else{
+      navigate(location.pathname.replace('-taro', ''));
+    }
+  };
 
   const handleClick = () => {
     setIsShowGuid(!isShowGuid)
@@ -93,7 +99,6 @@ const Header = () => {
   const onMouseHover4 = (isHovered) => {
     setIsShowGuid4(isHovered)
   }
-  console.log(headerBck)
   return (
     <div className="doc-header doc-header-black">
       <div className="header-logo">
@@ -101,8 +106,8 @@ const Header = () => {
         <span className="logo-border"></span>
         <span>
           <span
-            // onClick={toAnother}
-            className={`version link-title react`}
+            onClick={toAnother}
+            className={`version link-title react ${isReactTaro? 'taro' : ''}`}
             style={{ display: 'inline' }}
           >
             {isReactTaro ? '小程序' : 'H5'}

@@ -4,7 +4,7 @@ import APPContext from '../../context'
 import DemoBlock from './demoblock'
 import './demoblock.scss'
 
-const modules = import.meta.glob(`@/packages/**/demos/h5/*.tsx`, {
+const modules = import.meta.glob(`@/packages/**/demos/**/*.tsx`, {
   query: '?raw',
   import: 'default',
   eager: true,
