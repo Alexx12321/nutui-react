@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { compressText, copyCodeHtml } from './basedUtil'
-
+import './demoblock.scss'
 interface A {
   text: string
   scss: string

@@ -11,7 +11,7 @@ import { getComponentName } from '@/sites/assets/util'
 import routers from './router'
 import loadable from '@loadable/component'
 import CodeBlock from './components/demoblock/codeblock'
-
+import { BackTop } from '../../packages/backtop/backtop'
 const Title = () => {
   let location = useLocation()
   const s = window.location.hash.split('/')
@@ -21,8 +21,23 @@ const Title = () => {
   }, [location])
   const [componentName, setComponentName] = useState({ name: '', cName: '' })
   return (
-    <div className="title">
-      {componentName.name}&nbsp;{s[1] === 'zh-CN' && componentName.cName}
+    <div className="doc-title-content">
+      <div className="title">
+        {componentName.name}&nbsp;{s[1] === 'zh-CN' && componentName.cName}
+      </div>
+      <div className="npm-package">
+        <a href="https://www.npmjs.com/package/@nutui/nutui-react">
+          <img
+            src="https://img.shields.io/badge/npm-%40nutui%2Fnutui--react-brightgreen"
+            alt="@nutui/nutui-react"
+          />
+        </a>
+        <img
+          src="https://img12.360buyimg.com/imagetools/jfs/t1/192500/27/37524/4524/649d5065F7e5fbef6/afe567692acba3b0.png"
+          width="20"
+          height="20"
+        />
+      </div>
     </div>
   )
 }
@@ -68,33 +83,42 @@ const App = () => {
               <Issue></Issue>
             </div>
           </div>
+
           <div className="doc-content-document isComponent">
-            <Routes>
-              {routers.map((ru, k) => {
-                const path = ru.component.name?.substring(
-                  0,
-                  ru.component.name.lastIndexOf('/')
-                )
-                const C = useMemo(() => loadable(ru.component), [ru.component])
-                return (
-                  <Route
-                    key={k}
-                    path={ru.path}
-                    element={
-                      <APPContext.Provider value={{ path }}>
-                        <MDXProvider components={components}>
-                          <C />
-                        </MDXProvider>
-                      </APPContext.Provider>
-                    }
-                  ></Route>
-                )
-              })}
-            </Routes>
+            <div className="docs-component-page">
+              <div className="markdown-body">
+                <Routes>
+                  {routers.map((ru, k) => {
+                    const path = ru.component.name?.substring(
+                      0,
+                      ru.component.name.lastIndexOf('/')
+                    )
+                    const C = useMemo(
+                      () => loadable(ru.component),
+                      [ru.component]
+                    )
+                    return (
+                      <Route
+                        key={k}
+                        path={ru.path}
+                        element={
+                          <APPContext.Provider value={{ path }}>
+                            <MDXProvider components={components}>
+                              <C />
+                            </MDXProvider>
+                          </APPContext.Provider>
+                        }
+                      ></Route>
+                    )
+                  })}
+                </Routes>
+              </div>
+            </div>
           </div>
           <DemoPreview className={`${fixed ? 'fixed' : ''}`}></DemoPreview>
         </div>
       </HashRouter>
+      <BackTop threshold={500} />
     </div>
   )
 }
