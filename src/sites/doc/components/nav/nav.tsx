@@ -34,7 +34,7 @@ const Nav = () => {
                 {cn.packages.map((cp: any) => {
                   if (!cp.show) return null
                   return (
-                    <li>
+                    <li key={Math.random()}>
                       <NavLink
                         key={Math.random()}
                         className={({ isActive, isPending }) =>

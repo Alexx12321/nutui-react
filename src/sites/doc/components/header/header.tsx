@@ -24,7 +24,7 @@ import {
 const Header = () => {
   const navigate = useNavigate()
   const location = useLocation()
-  const [currLang, setCurrLang] = useState<any>({ locale: '' })
+  const [currLang, setCurrLang] = useState<any>({})
 
   const toHome = () => {
     navigate('/')
@@ -48,26 +48,44 @@ const Header = () => {
     { name: '中文', locale: 'zh-CN' },
     { name: 'English', locale: 'en-US' },
   ]
-  const isZh = true
-  const toLink = (item: any) => {}
+  const isZh = currLang?.locale === 'zh-CN'
+  const toLink = (item: any) => {
+    if (item) {
+      if (isZh) {
+        item.path = item.path.replace('en-US', 'zh-CN')
+      } else {
+        item.path = item.path.replace('zh-CN', 'en-US')
+      }
+      navigate(item.path)
+    } else {
+      navigate('/')
+    }
+  }
+  useEffect(() => {
+    const lang = langs.filter(
+      (l) => location.pathname.indexOf(l.locale) > -1
+    )[0]
+    setCurrLang(lang)
+    console.log(lang)
+  }, [location])
   const [visible, setVisible] = useState(false)
   const [activeLink, setActiveLink] = useState('指南')
-  const handleSwitchLocale = (e: any) => {
-    // const classList: string[] = [].slice.call(e.target.classList)
-    // if (classList.indexOf('curr-lang') > -1) {
-    //   return setVisible(!visible)
-    // }
-    // const name = e.target.innerText
-    // setVisible(!visible)
-    // const [{ locale }] = langs.filter((l) => name == l.name)
-    // let link = ''
-    // if (config.locales.some((l) => window.location.href.indexOf(l) > -1)) {
-    //   link = window.location.href.replace(/\#\/([a-z-]+)/gi, `#/${locale}`)
-    // } else {
-    //   link = window.location.href.replace(/\#\//gi, `#/${locale}/`)
-    // }
-    // window.location.href = link
-  }
+  // const handleSwitchLocale = (e: any) => {
+  //   const classList: string[] = [].slice.call(e.target.classList)
+  //   if (classList.indexOf('curr-lang') > -1) {
+  //     return setVisible(!visible)
+  //   }
+  //   const name = e.target.innerText
+  //   setVisible(!visible)
+  //   const [{ locale }] = langs.filter((l) => name == l.name)
+  //   let link = ''
+  //   if (config.locales.some((l) => window.location.href.indexOf(l) > -1)) {
+  //     link = window.location.href.replace(/\#\/([a-z-]+)/gi, `#/${locale}`)
+  //   } else {
+  //     link = window.location.href.replace(/\#\//gi, `#/${locale}/`)
+  //   }
+  //   window.location.href = link
+  // }
   const isReactTaro = location.pathname.includes('-taro')
   const headerBck = SiteReactTaro.header
   const [isShowGuid, setIsShowGuid] = useState(false)
@@ -79,18 +97,23 @@ const Header = () => {
   }
   const toAnother = () => {
     if (!location.pathname.includes('taro')) {
-      navigate(location.pathname + '-taro');
-    } else{
-      navigate(location.pathname.replace('-taro', ''));
+      navigate(location.pathname + '-taro')
+    } else {
+      navigate(location.pathname.replace('-taro', ''))
     }
-  };
-
+  }
+  const checkGuidTheme = (item: any, type: string) => {
+    setIsShowGuid(false)
+    window.open(item.link)
+  }
+  const checkGuidTheme2 = (item: any, type: string) => {
+    if (item.link) {
+      setIsShowGuid(false)
+      window.open(item.link)
+    }
+  }
   const handleClick = () => {
     setIsShowGuid(!isShowGuid)
-  }
-
-  const handleVersionSelect = (version) => {
-    setSelectedVersion(version)
   }
 
   const handleLanguageSelect = (language) => {
@@ -107,7 +130,7 @@ const Header = () => {
         <span>
           <span
             onClick={toAnother}
-            className={`version link-title react ${isReactTaro? 'taro' : ''}`}
+            className={`version link-title react ${isReactTaro ? 'taro' : ''}`}
             style={{ display: 'inline' }}
           >
             {isReactTaro ? '小程序' : 'H5'}
@@ -128,7 +151,12 @@ const Header = () => {
                   setActiveLink(item.cName)
                 }}
               >
-                <a onClick={() => toLink(item)}>
+                <a
+                  onClick={() => {
+                    console.log(item)
+                    toLink(item)
+                  }}
+                >
                   {isZh ? item.cName : item.eName}
                 </a>
               </li>
@@ -171,11 +199,15 @@ const Header = () => {
                         </div>
                         <div>
                           {item.data.map((info, index) => (
-                            <div className="content">
+                            <div
+                              className="content"
+                              onClick={() => checkGuidTheme(info, 'Basis')}
+                              key={info.link}
+                            >
                               <div className="version"> {info.name}</div>
                               <div className="list">
                                 {info.language.map((lang, index) => (
-                                  <div className="lang">
+                                  <div className="lang" key={lang}>
                                     <div className="name">{lang}</div>
                                   </div>
                                 ))}
@@ -244,7 +276,9 @@ const Header = () => {
                               <div
                                 className="content"
                                 key={index2}
-                                onClick={() => handleVersionSelect(info2.name)}
+                                onClick={() =>
+                                  checkGuidTheme(info2, 'Advanced')
+                                }
                               >
                                 <div className="version"> {info2.name}</div>
                                 <div
@@ -276,7 +310,25 @@ const Header = () => {
               </div>
             </li>
             {!isReactTaro && (
-              <li className="nav-item" onClick={() => {}}>
+              <li
+                className="nav-item"
+                onClick={() => {
+                  let location = window.location
+                  if (currLang.locale == 'zh-CN') {
+                    location.href = location.href.replace('zh-CN', 'en-US')
+                    setCurrLang({
+                      name: 'English',
+                      locale: 'en-US',
+                    })
+                  } else {
+                    location.href = location.href.replace('en-US', 'zh-CN')
+                    setCurrLang({
+                      name: '中文',
+                      locale: 'zh-CN',
+                    })
+                  }
+                }}
+              >
                 En/中
               </li>
             )}

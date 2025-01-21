@@ -7,7 +7,7 @@ import App from './App'
 
 if (isMobile) {
   location.replace('demo.html')
-}
+} 
 
 const rootElement = document.querySelector('#doc')
 

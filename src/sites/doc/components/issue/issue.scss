@@ -34,13 +34,13 @@
       background-size: 100% 100%;
       background-repeat: no-repeat;
       &.issue {
-        background-image: url('../assets/images/icon-add.svg');
+        background-image: url('../../../assets/images/icon-add.svg');
       }
       &.open {
-        background-image: url('../assets/images/icon-open.svg');
+        background-image: url('../../../assets/images/icon-open.svg');
       }
       &.closed {
-        background-image: url('../assets/images/icon-closed.svg');
+        background-image: url('../../../assets/images/icon-closed.svg');
       }
     }
     .nut-icon {

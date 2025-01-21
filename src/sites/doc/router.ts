@@ -1,3 +1,4 @@
+import { Divider } from '@nutui/nutui-react-taro';
 // const modulesPage = import.meta.globEager('/src/packages/**/doc.md', {
 //   as: 'raw',
 // })
@@ -43,4 +44,9 @@ for (const path in modulesTaroPage) {
   })
 }
 
+// routes.push({
+//   path: '/zh-CN/guide/intro-react',
+//   name: 'intro-react-zh-CN',
+//   component: () => Divider
+// })
 export default routes
