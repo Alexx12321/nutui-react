@@ -8,17 +8,23 @@ import Header from '@/sites/doc/components/header'
 import DemoPreview from '@/sites/doc/components/demo-preview'
 import Issue from '@/sites/doc/components/issue'
 import { getComponentName } from '@/sites/assets/util'
-import routers from './router'
+import {
+  routes as routers,
+  guideEnRoutes,
+  guideRoutes,
+  guideEnTaroRoutes,
+  guideTaroRoutes,
+} from './router'
 import loadable from '@loadable/component'
 import CodeBlock from './components/demoblock/codeblock'
 import { BackTop } from '../../packages/backtop/backtop'
+
 const Title = () => {
   let location = useLocation()
   const isTaro = location.pathname.includes('-taro')
   const s = window.location.hash.split('/')
   useEffect(() => {
     const componentName = getComponentName()
-    console.log(componentName)
     setComponentName(componentName)
   }, [location])
   const [componentName, setComponentName] = useState({ name: '', cName: '' })
@@ -59,85 +65,76 @@ const Title = () => {
     </div>
   )
 }
+
 const components = {
   CodeBlock,
 }
-const App = () => {
-  const [fixed, setFixed] = useState(false)
-  const [hidden, setHidden] = useState(false)
 
+const Content = () => {
+  const [fixed, setFixed] = useState(false)
+  const location = useLocation()
   const scrollTitle = () => {
     let top = document.documentElement.scrollTop
     if (top > 127) {
       setFixed(true)
-      if (top < 142) {
-        setHidden(true)
-      } else {
-        setHidden(false)
-      }
     } else {
       setFixed(false)
-      setHidden(false)
     }
   }
-
+  const isGuide = location.pathname.includes('/guide')
   useEffect(() => {
     document.addEventListener('scroll', scrollTitle)
   }, [])
 
   return (
+    <div className="doc-content">
+      <div className="doc-title">
+        <div className={`doc-title-position ${fixed ? 'fixed' : ''}`}>
+          <Title />
+        </div>
+      </div>
+      <div
+        className={`doc-content-document ${isGuide ? 'full' : 'isComponent'}`}
+      >
+        <Routes>
+          {[...routers, ...guideRoutes].map((ru, k) => {
+            const path = ru.component.name?.substring(
+              0,
+              ru.component.name.lastIndexOf('/')
+            )
+            const C = useMemo(() => loadable(ru.component), [ru.component])
+            return (
+              <Route
+                key={k}
+                path={ru.path}
+                element={
+                  <APPContext.Provider value={{ path }}>
+                    <MDXProvider components={components}>
+                      <C />
+                    </MDXProvider>
+                  </APPContext.Provider>
+                }
+              ></Route>
+            )
+          })}
+        </Routes>
+      </div>
+      <DemoPreview className={`${fixed ? 'fixed' : ''}`}></DemoPreview>
+    </div>
+  )
+}
+
+const App = () => {
+  return (
     <div>
       <HashRouter>
-        <Header></Header>
-        <Nav></Nav>
-        <div className="doc-content">
-          <div className="doc-title">
-            <div
-              className={`doc-title-position ${fixed ? 'fixed' : ''} ${
-                hidden ? 'hidden' : ''
-              }`}
-            >
-              <Title></Title>
-              <Issue></Issue>
-            </div>
-          </div>
-
-          <div className="doc-content-document isComponent">
-            <div className="docs-component-page">
-              <div className="markdown-body">
-                <Routes>
-                  {routers.map((ru, k) => {
-                    const path = ru.component.name?.substring(
-                      0,
-                      ru.component.name.lastIndexOf('/')
-                    )
-                    const C = useMemo(
-                      () => loadable(ru.component),
-                      [ru.component]
-                    )
-                    return (
-                      <Route
-                        key={k}
-                        path={ru.path}
-                        element={
-                          <APPContext.Provider value={{ path }}>
-                            <MDXProvider components={components}>
-                              <C />
-                            </MDXProvider>
-                          </APPContext.Provider>
-                        }
-                      ></Route>
-                    )
-                  })}
-                </Routes>
-              </div>
-            </div>
-          </div>
-          <DemoPreview className={`${fixed ? 'fixed' : ''}`}></DemoPreview>
-        </div>
+        <Header />
+        <Nav />
+        <Content />
       </HashRouter>
       <BackTop threshold={500} />
     </div>
   )
 }
+
 export default App

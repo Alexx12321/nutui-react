@@ -95,6 +95,11 @@ const Header = () => {
   const handleMouseHover = (isHovered) => {
     setIsShowGuid(isHovered)
   }
+  useEffect(() => {
+    if(location.pathname.includes('/component')) {
+      setActiveLink('组件')
+    }
+  }, [location])
   const toAnother = () => {
     if (!location.pathname.includes('taro')) {
       navigate(location.pathname + '-taro')
