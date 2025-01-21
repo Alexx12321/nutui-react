@@ -1,4 +1,4 @@
-<h2 style="margin-top: 0;">Contribution Guidelines</h2>
+# Contribution Guidelines
 
 You can contribute to the NutUI community according to the co-construction direction in 《[NutUI invites you to build, Hello Contributor](https://jelly.jd.com/article/6320528b92d94a0068685525)》.
 
@@ -123,5 +123,5 @@ npm run build:taro
 Thanks to all the developers below who have contributed code to NutUI.
 
 <a href="https://github.com/jdf2e/nutui-react/graphs/contributors">
-  <img src="https://opencollective.com/nutui-react/contributors.svg?width=890&button=false" alt="contributors">
+  <img src="https://opencollective.com/nutui-react/contributors.svg?width=890&button=false" alt="contributors"/>
 </a>

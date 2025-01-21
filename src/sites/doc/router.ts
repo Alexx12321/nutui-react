@@ -71,7 +71,7 @@ for (const path in modulesTaroDocs) {
   let name = (/docs\/taro\/(.*).md/.exec(path) as any[])[1];
   guideTaroRoutes.push({
     path: `/zh-CN/guide-taro/${name}`,
-    component: modulesDocs[path],
+    component: modulesTaroDocs[path],
     name
   });
 }
@@ -80,7 +80,7 @@ for (const path in modulesEnTaroDocs) {
   let name = (/docs\/taro\/(.*).en-US.md/.exec(path) as any[])[1];
   guideEnTaroRoutes.push({
     path: `/en-US/guide-taro/${name}`,
-    component: modulesDocs[path],
+    component: modulesEnTaroDocs[path],
     name
   });
 }

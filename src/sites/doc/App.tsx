@@ -85,7 +85,8 @@ const Content = () => {
   useEffect(() => {
     document.addEventListener('scroll', scrollTitle)
   }, [])
-
+  const routes = [...routers, ...guideRoutes, ...guideEnRoutes, ...guideTaroRoutes, ...guideEnTaroRoutes]
+  console.log(guideRoutes,guideTaroRoutes)
   return (
     <div className="doc-content">
      {!isGuide && <div className="doc-title">
@@ -97,8 +98,8 @@ const Content = () => {
         className={`doc-content-document ${isGuide ? 'full' : 'isComponent'}`}
       >
         <Routes>
-          {[...routers, ...guideRoutes].map((ru, k) => {
-            const path = ru.component.name?.substring(
+          {routes.map((ru, k) => {
+            const path = ru.component?.name?.substring(
               0,
               ru.component.name.lastIndexOf('/')
             )

@@ -1,4 +1,4 @@
-<h2 style="margin-top: 0;">贡献指南</h2>
+# 贡献指南
 
 您可根据《[NutUI 邀您共建，Contributor 您好](https://jelly.jd.com/article/6320528b92d94a0068685525)》中的共建方向为 NutUI 社区做出贡献。
 
@@ -117,5 +117,5 @@ npm run build:taro
 感谢以下所有给 NutUI 贡献过代码的开发者。
 &nbsp;
 <a href="https://github.com/jdf2e/nutui-react/graphs/contributors">
-<img src="https://opencollective.com/nutui-react/contributors.svg?width=890&button=false" alt="contributors">
+<img src="https://opencollective.com/nutui-react/contributors.svg?width=890&button=false" alt="contributors"/>
 </a>
