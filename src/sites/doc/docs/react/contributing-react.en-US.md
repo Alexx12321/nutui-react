@@ -1,4 +1,4 @@
-<h2 style="margin-top: 0;">Contribution Guidelines</h2>
+# Contribution Guidelines
 
 You can contribute to the NutUI community according to the co-construction direction in 《[NutUI invites you to build, Hello Contributor](https://jelly.jd.com/article/6320528b92d94a0068685525)》.
 

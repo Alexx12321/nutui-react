@@ -88,11 +88,11 @@ const Content = () => {
 
   return (
     <div className="doc-content">
-      <div className="doc-title">
+     {!isGuide && <div className="doc-title">
         <div className={`doc-title-position ${fixed ? 'fixed' : ''}`}>
           <Title />
         </div>
-      </div>
+      </div>}
       <div
         className={`doc-content-document ${isGuide ? 'full' : 'isComponent'}`}
       >

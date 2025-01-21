@@ -1,4 +1,4 @@
-## 贡献指南
+# 贡献指南
 
 您可根据《[NutUI 邀您共建，Contributor 您好](https://jelly.jd.com/article/6320528b92d94a0068685525)》中的共建方向为 NutUI 社区做出贡献。
 
