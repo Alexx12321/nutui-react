@@ -19,11 +19,20 @@ jobs:
           echo "${{github.event_name}}"
           if [[ "${{ github.event.pull_request.base.ref }}" == "next" ]]; then
             echo "label=2.x" >> $GITHUB_ENV
+            echo "remove_label=3.x" >> $GITHUB_ENV
           elif [[ "${{ github.event.pull_request.base.ref }}" == "feat_v3.x" ]]; then
             echo "label=3.x" >> $GITHUB_ENV
+            echo "remove_label=2.x" >> $GITHUB_ENV
           else
             echo "label=" >> $GITHUB_ENV
           fi
+
+      - name: Remove label from Pull Request
+        if: env.remove_label != ''
+        uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: ${{ env.remove_label }}
 
       - name: Add label to Pull Request
         if: env.label != ''
