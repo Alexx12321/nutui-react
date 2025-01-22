@@ -31,10 +31,13 @@ const Nav = () => {
     } else {
       setIsGuide(false)
     }
+    if(location.pathname.includes('/intro-react')) {
+      setActiveName('intro-react')
+    }
   }, [location])
   const changeNav = (_nav: any) => {
     setActiveName(_nav.name)
-
+    console.log(_nav.name)
     navigate(`${isZh ? '/zh-CN/' : '/en-US/'}guide/${_nav.name.toLowerCase()}${isTaro? '-taro' : ''}`)
   }
   const isTaro = location.pathname.includes('-taro')
