@@ -4,7 +4,7 @@ The NutUI-React component library is suitable for H5 applications of the React t
 
 ## Features
 
-- 🚀 70+ high-quality components covering mainstream mobile scenarios
+- 🚀 80+ high-quality components covering mainstream mobile scenarios
 - 📖 Based on JD APP 10.0 visual specification
 - 🍭 Support on-demand reference
 - 📖 Detailed documentation and examples
@@ -34,7 +34,7 @@ For browsers that do not support CSS variables, it is recommended to use [postcs
 Thanks to the following friends for their contributions to NutUI-React:
 
 <a href="https://github.com/jdf2e/nutui-react/graphs/contributors">
-  <img src="https://opencollective.com/nutui-react/contributors.svg?width=890&button=false" alt="contributors">
+  <img src="https://opencollective.com/nutui-react/contributors.svg?width=890&button=false" alt="contributors"/>
 </a>
 
 ## LICENSE

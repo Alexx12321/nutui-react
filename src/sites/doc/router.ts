@@ -70,7 +70,7 @@ const modulesTaroDocs = import.meta.glob('/src/sites/doc/docs/taro/*.md');
 for (const path in modulesTaroDocs) {
   let name = (/docs\/taro\/(.*).md/.exec(path) as any[])[1];
   guideTaroRoutes.push({
-    path: `/zh-CN/guide-taro/${name}`,
+    path: `/zh-CN/guide/${name}-taro`,
     component: modulesTaroDocs[path],
     name
   });
@@ -79,7 +79,7 @@ const modulesEnTaroDocs = import.meta.glob('/src/sites/doc/docs/taro/*.en-US.md'
 for (const path in modulesEnTaroDocs) {
   let name = (/docs\/taro\/(.*).en-US.md/.exec(path) as any[])[1];
   guideEnTaroRoutes.push({
-    path: `/en-US/guide-taro/${name}`,
+    path: `/en-US/guide/${name}-taro`,
     component: modulesEnTaroDocs[path],
     name
   });

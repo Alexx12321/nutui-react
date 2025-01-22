@@ -35,7 +35,7 @@ const Nav = () => {
   const changeNav = (_nav: any) => {
     setActiveName(_nav.name)
 
-    navigate(`${isZh ? '/zh-CN/' : '/en-US/'}guide${isTaro? '-taro' : ''}/${_nav.name.toLowerCase()}`)
+    navigate(`${isZh ? '/zh-CN/' : '/en-US/'}guide/${_nav.name.toLowerCase()}${isTaro? '-taro' : ''}`)
   }
   const isTaro = location.pathname.includes('-taro')
   const isZh = lang === 'zh-CN'

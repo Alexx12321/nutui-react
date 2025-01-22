@@ -4,7 +4,7 @@ NutUI-React 组件库，基于 Taro，使用 React 技术栈开发小程序应�
 
 ## 特性
 
-- 🚀 70+ 高质量组件，覆盖移动端主流场景
+- 🚀 80+ 高质量组件，覆盖移动端主流场景
 - 💪 支持一套代码同时开发多端小程序+H5
 - 📖 基于京东APP 10.0 视觉规范
 - 🍭 支持按需引用
@@ -31,7 +31,7 @@ NutUI-React 组件库，基于 Taro，使用 React 技术栈开发小程序应�
 感谢以下小伙伴们为 NutUI-React 发展做出的贡献：
 
 <a href="https://github.com/jdf2e/nutui-react/graphs/contributors">
-  <img src="https://opencollective.com/nutui-react/contributors.svg?width=890&button=false" alt="contributors">
+  <img src="https://opencollective.com/nutui-react/contributors.svg?width=890&button=false" alt="contributors"/>
 </a>
 
 ## 开源协议

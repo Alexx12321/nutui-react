@@ -85,15 +85,23 @@ const Content = () => {
   useEffect(() => {
     document.addEventListener('scroll', scrollTitle)
   }, [])
-  const routes = [...routers, ...guideRoutes, ...guideEnRoutes, ...guideTaroRoutes, ...guideEnTaroRoutes]
-  console.log(guideRoutes,guideTaroRoutes)
+  const routes = [
+    ...routers,
+    ...guideRoutes,
+    ...guideEnRoutes,
+    ...guideTaroRoutes,
+    ...guideEnTaroRoutes,
+  ]
+  console.log(guideRoutes, guideTaroRoutes)
   return (
     <div className="doc-content">
-     {!isGuide && <div className="doc-title">
-        <div className={`doc-title-position ${fixed ? 'fixed' : ''}`}>
-          <Title />
+      {!isGuide && (
+        <div className="doc-title">
+          <div className={`doc-title-position ${fixed ? 'fixed' : ''}`}>
+            <Title />
+          </div>
         </div>
-      </div>}
+      )}
       <div
         className={`doc-content-document ${isGuide ? 'full' : 'isComponent'}`}
       >
@@ -120,7 +128,9 @@ const Content = () => {
           })}
         </Routes>
       </div>
-      <DemoPreview className={`${fixed ? 'fixed' : ''}`}></DemoPreview>
+      {!isGuide && (
+        <DemoPreview className={`${fixed ? 'fixed' : ''}`}></DemoPreview>
+      )}
     </div>
   )
 }
