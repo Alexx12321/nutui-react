@@ -66,9 +66,7 @@ const Header = () => {
       (l) => location.pathname.indexOf(l.locale) > -1
     )[0]
     setCurrLang(lang)
-    console.log(lang)
   }, [location])
-  const [visible, setVisible] = useState(false)
   const [activeLink, setActiveLink] = useState('指南')
   // const handleSwitchLocale = (e: any) => {
   //   const classList: string[] = [].slice.call(e.target.classList)
@@ -158,7 +156,6 @@ const Header = () => {
               >
                 <a
                   onClick={() => {
-                    console.log(item)
                     toLink(item)
                   }}
                 >

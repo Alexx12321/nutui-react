@@ -92,7 +92,6 @@ const Content = () => {
     ...guideTaroRoutes,
     ...guideEnTaroRoutes,
   ]
-  console.log(guideRoutes, guideTaroRoutes)
   return (
     <div className="doc-content">
       {!isGuide && (
