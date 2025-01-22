@@ -128,7 +128,10 @@ const Content = () => {
         </Routes>
       </div>
       {!isGuide && (
-        <DemoPreview className={`${fixed ? 'fixed' : ''}`}></DemoPreview>
+        <>
+          <DemoPreview className={`${fixed ? 'fixed' : ''}`}></DemoPreview>
+          <BackTop  className={`${fixed ? 'doc-backtop' : ''}`} />
+        </>
       )}
     </div>
   )
@@ -142,7 +145,6 @@ const App = () => {
         <Nav />
         <Content />
       </HashRouter>
-      <BackTop threshold={500} />
     </div>
   )
 }

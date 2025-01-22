@@ -12,6 +12,7 @@ const modules = import.meta.glob(`@/packages/**/demos/**/*.tsx`, {
 
 const CodeBlock: FunctionComponent = (props: { src?: string }) => {
   const ctx = useContext(APPContext)
+  const path = `${ctx.path}/doc.md`
   const originCode = modules[`${ctx.path}/demos/${props.src}`]
   try {
     const highlightedCode = hljs.highlightAuto(originCode, ['jsx']).value
@@ -22,7 +23,7 @@ const CodeBlock: FunctionComponent = (props: { src?: string }) => {
         </pre>
       </DemoBlock>
     )
-  } catch(e) {
+  } catch (e) {
     console.log('e', e)
     return <></>
   }
